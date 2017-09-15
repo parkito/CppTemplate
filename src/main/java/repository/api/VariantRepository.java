@@ -7,7 +7,4 @@ import entity.Variant;
  * artem.karnov@t-systems.com
  */
 public interface VariantRepository extends GenericRepository<Variant, Long> {
-
-    Variant findVariantById(long id);
-
 }

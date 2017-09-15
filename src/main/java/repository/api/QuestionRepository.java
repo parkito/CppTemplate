@@ -8,6 +8,4 @@ import entity.Question;
  */
 public interface QuestionRepository extends GenericRepository<Question, Long> {
 
-    Question findQuestionById(long id);
-
 }

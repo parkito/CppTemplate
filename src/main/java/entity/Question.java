@@ -1,16 +1,31 @@
 package entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @author Artem Karnov @date 15.09.2017.
  * artem.karnov@t-systems.com
  */
-public class Question {
+@Entity
+public class Question implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(nullable = false)
     private String questionText;
+
+    @Column(nullable = false)
     private double weight;
+
+    @Column
     private List<Variant> variants;
 
     public long getId() {

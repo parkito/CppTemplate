@@ -1,5 +1,10 @@
 package repository.api;
 
+import exception.EntityCreateException;
+import exception.EntityDeleteException;
+import exception.EntityUpdateException;
+import exception.RepositoryException;
+
 import java.util.List;
 
 /**
@@ -8,18 +13,22 @@ import java.util.List;
  */
 public interface GenericRepository<E, K> {
 
-    void create(E entity);
+    void create(E entity) throws EntityCreateException;
 
-    void create(List<E> entities);
+    void create(List<E> entities) throws EntityCreateException;
 
-    void delete(E entity);
+    void delete(E entity) throws EntityDeleteException;
 
-    void delete(List<E> entities);
+    void delete(List<E> entities) throws EntityDeleteException;
 
-    List<E> getAll();
+    List<E> getAll() throws RepositoryException;
 
-    void update(E entity);
+    E find(K id) throws RepositoryException;
 
-    void update(List<E> entities);
+    List<E> find(List<K> id) throws RepositoryException;
+
+    void update(E entity) throws EntityUpdateException;
+
+    void update(List<E> entities) throws EntityUpdateException;
 
 }

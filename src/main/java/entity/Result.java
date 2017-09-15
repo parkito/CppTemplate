@@ -1,18 +1,37 @@
 package entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Map;
 
 /**
  * @author Artem Karnov @date 15.09.2017.
  * artem.karnov@t-systems.com
  */
-public class Result {
+@Entity
+public class Result implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(nullable = false)
     private double score;
+
+    @Column(nullable = false)
     private User user;
+
+    @Column(nullable = false)
     private Puzzle puzzle;
+
+    @Column(nullable = false)
     private Map<Question, Variant> rightAnswers;
+
+    @Column(nullable = false)
     private Map<Question, Variant> mistakenAnswers;
 
     public long getId() {

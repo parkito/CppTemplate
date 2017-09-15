@@ -1,18 +1,37 @@
 package entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @author Artem Karnov @date 15.09.2017.
  * artem.karnov@t-systems.com
  */
-public class User {
+@Entity
+public class User implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(nullable = false)
     private String email;
+
+    @Column(nullable = false)
     private String firstName;
+
+    @Column(nullable = false)
     private String lastName;
+
+    @Column(nullable = false)
     private String group;
+
+    @Column
     private List<Result> results;
 
     public long getId() {
