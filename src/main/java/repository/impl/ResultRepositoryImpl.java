@@ -1,6 +1,8 @@
 package repository.impl;
 
 import entity.Result;
+import repository.api.QuestionRepository;
+import repository.api.ResultRepository;
 
 import java.util.List;
 
@@ -10,13 +12,14 @@ import java.util.List;
  */
 public class ResultRepositoryImpl extends GenericRepositoryImpl<Result, Long> implements repository.api.ResultRepository {
 
-    @Override
-    public Result findResultById(Long id) {
-        return null;
+    private static final ResultRepository REPO;
+
+    static {
+        REPO = new ResultRepositoryImpl();
     }
 
-    @Override
-    public List<Result> findResultById(List<Long> ids) {
-        return null;
+    public static ResultRepository getInstance() {
+        return REPO;
     }
+
 }

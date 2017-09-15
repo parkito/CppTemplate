@@ -2,6 +2,7 @@ package repository.impl;
 
 import entity.Puzzle;
 import exception.RepositoryException;
+import repository.api.PuzzleRepository;
 
 import javax.persistence.PersistenceException;
 import java.util.List;
@@ -10,7 +11,17 @@ import java.util.List;
  * @author Artem Karnov @date 15.09.2017.
  * artem.karnov@t-systems.com
  */
-public class PuzzleRepositoryImpl extends GenericRepositoryImpl<Puzzle, Long> implements repository.api.PuzzleRepository {
+public class PuzzleRepositoryImpl extends GenericRepositoryImpl<Puzzle, Long> implements PuzzleRepository {
+
+    private static final PuzzleRepository REPO;
+
+    static {
+        REPO = new PuzzleRepositoryImpl();
+    }
+
+    public static PuzzleRepository getInstance() {
+        return REPO;
+    }
 
     @Override
     public Puzzle findPuzzleByTitle(String title) throws RepositoryException {

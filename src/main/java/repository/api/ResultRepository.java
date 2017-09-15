@@ -11,8 +11,4 @@ import java.util.List;
  */
 public interface ResultRepository extends GenericRepository<Result, Long> {
 
-    Result findResultById(Long id) throws RepositoryException;
-
-    List<Result> findResultById(List<Long> ids) throws RepositoryException;
-
 }

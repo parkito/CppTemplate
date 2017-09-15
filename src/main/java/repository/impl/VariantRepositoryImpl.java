@@ -1,6 +1,7 @@
 package repository.impl;
 
 import entity.Variant;
+import repository.api.UserRepository;
 import repository.api.VariantRepository;
 
 /**
@@ -8,4 +9,15 @@ import repository.api.VariantRepository;
  * artem.karnov@t-systems.com
  */
 public class VariantRepositoryImpl extends GenericRepositoryImpl<Variant, Long> implements VariantRepository {
+
+    private static final VariantRepository REPO;
+
+    static {
+        REPO = new VariantRepositoryImpl();
+    }
+
+    public static VariantRepository getInstance() {
+        return REPO;
+    }
+
 }
