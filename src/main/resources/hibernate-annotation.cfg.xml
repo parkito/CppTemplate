@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection properties - Driver, URL, user, password -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/crudDB</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">214189</property>
+
+        <!-- org.hibernate.HibernateException: No CurrentSessionContext configured! -->
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">10</property>
+        <property name="maxActive">10</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">create</property>
+
+        <!-- DB schema will be updated if needed -->
+        <property name="format_sql">false</property>
+
+        <!-- Mapping with model class containing annotations -->
+        <mapping class="com.karnov.crud.entity.Puzzle"/>
+        <mapping class="com.karnov.crud.entity.User"/>
+        <mapping class="com.karnov.crud.entity.Question"/>
+        <mapping class="com.karnov.crud.entity.Result"/>
+        <mapping class="com.karnov.crud.entity.Variant"/>
+    </session-factory>
+</hibernate-configuration>
