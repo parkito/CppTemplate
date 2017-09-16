@@ -13,40 +13,50 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.2.11.Final</version>
+            <version>${hibernate.core.version}</version>
         </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>6.0.5</version>
+            <version>${mysql.connector.java.version}</version>
         </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.0</version>
+            <version>${javax.servlet-api-version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>javax.servlet.jsp-api</artifactId>
-            <version>2.3.1</version>
+            <version>${javax.servlet.jsp-api-version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
-            <version>1.2</version>
+            <version>${jstl-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
         </dependency>
 
     </dependencies>
 
     <properties>
-        <mysql-connector-java-version>1.8.9</mysql-connector-java-version>
-        <hibernate.core.version>6.0.5</hibernate.core.version>
+        <mysql.connector.java.version>6.0.5</mysql.connector.java.version>
+        <hibernate.core.version>5.2.11.Final</hibernate.core.version>
+        <javax.servlet-api-version>4.0.0</javax.servlet-api-version>
+        <javax.servlet.jsp-api-version>2.3.1</javax.servlet.jsp-api-version>
+        <jstl-version>1.2</jstl-version>
+        <junit.jupiter.version>5.0.0</junit.jupiter.version>
         <java-version>1.8</java-version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -68,7 +78,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
-                    <warSourceDirectory>webapp</warSourceDirectory>
+                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
                     <failOnMissingWebXml>true</failOnMissingWebXml>
                 </configuration>
             </plugin>
