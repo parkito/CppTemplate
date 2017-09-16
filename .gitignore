@@ -44,6 +44,7 @@ hs_err_pid*
 # Maven
 log/
 target/
+classes
 
 # Gradle
 build/
