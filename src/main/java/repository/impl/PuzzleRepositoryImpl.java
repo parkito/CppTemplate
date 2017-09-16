@@ -13,16 +13,6 @@ import java.util.List;
  */
 public class PuzzleRepositoryImpl extends GenericRepositoryImpl<Puzzle, Long> implements PuzzleRepository {
 
-    private static final PuzzleRepository REPO;
-
-    static {
-        REPO = new PuzzleRepositoryImpl();
-    }
-
-    public static PuzzleRepository getInstance() {
-        return REPO;
-    }
-
     @Override
     public Puzzle findPuzzleByTitle(String title) throws RepositoryException {
         try {

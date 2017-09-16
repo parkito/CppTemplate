@@ -12,14 +12,4 @@ import java.util.List;
  */
 public class ResultRepositoryImpl extends GenericRepositoryImpl<Result, Long> implements repository.api.ResultRepository {
 
-    private static final ResultRepository REPO;
-
-    static {
-        REPO = new ResultRepositoryImpl();
-    }
-
-    public static ResultRepository getInstance() {
-        return REPO;
-    }
-
 }

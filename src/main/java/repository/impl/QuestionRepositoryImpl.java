@@ -9,14 +9,4 @@ import repository.api.QuestionRepository;
  */
 public class QuestionRepositoryImpl extends GenericRepositoryImpl<Question, Long> implements repository.api.QuestionRepository {
 
-    private static final QuestionRepository REPO;
-
-    static {
-        REPO = new QuestionRepositoryImpl();
-    }
-
-    public static QuestionRepository getInstance() {
-        return REPO;
-    }
-
 }

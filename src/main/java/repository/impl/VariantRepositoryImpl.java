@@ -10,14 +10,4 @@ import repository.api.VariantRepository;
  */
 public class VariantRepositoryImpl extends GenericRepositoryImpl<Variant, Long> implements VariantRepository {
 
-    private static final VariantRepository REPO;
-
-    static {
-        REPO = new VariantRepositoryImpl();
-    }
-
-    public static VariantRepository getInstance() {
-        return REPO;
-    }
-
 }

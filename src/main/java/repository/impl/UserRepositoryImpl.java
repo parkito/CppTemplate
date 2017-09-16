@@ -13,16 +13,6 @@ import java.util.List;
  */
 public class UserRepositoryImpl extends GenericRepositoryImpl<User, Long> implements UserRepository {
 
-    private static final UserRepository REPO;
-
-    static {
-        REPO = new UserRepositoryImpl();
-    }
-
-    public static UserRepository getInstance() {
-        return REPO;
-    }
-
     @Override
     public User findUserByEmail(String email) throws RepositoryException {
         try {
