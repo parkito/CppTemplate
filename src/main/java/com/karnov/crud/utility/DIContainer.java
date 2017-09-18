@@ -23,18 +23,18 @@ import com.karnov.crud.service.VariantService;
 public class DIContainer {
 
     //Repositories
-    private static final PuzzleRepository puzzleRepository = new PuzzleRepositoryImpl();
-    private static final QuestionRepository questionRepository = new QuestionRepositoryImpl();
-    private static final ResultRepository resultRepository = new ResultRepositoryImpl();
-    private static final UserRepository userRepository = new UserRepositoryImpl();
-    private static final VariantRepository variantRepository = new VariantRepositoryImpl();
+    private static final PuzzleRepository PUZZLE_REPOSITORY = new PuzzleRepositoryImpl();
+    private static final QuestionRepository QUESTION_REPOSITORY = new QuestionRepositoryImpl();
+    private static final ResultRepository RESULT_REPOSITORY = new ResultRepositoryImpl();
+    private static final UserRepository USER_REPOSITORY = new UserRepositoryImpl();
+    private static final VariantRepository VARIANT_REPOSITORY = new VariantRepositoryImpl();
 
     //Services
-    private static final PuzzleService puzzleService = new PuzzleService();
-    private static final QuestionService questionService = new QuestionService();
-    private static final ResultService resultService = new ResultService();
-    private static final UserService userService = new UserService();
-    private static final VariantService variantService = new VariantService();
+    private static final PuzzleService PUZZLE_SERVICE = new PuzzleService();
+    private static final QuestionService QUESTION_SERVICE = new QuestionService();
+    private static final ResultService RESULT_SERVICE = new ResultService();
+    private static final UserService USER_SERVICE = new UserService();
+    private static final VariantService VARIANT_SERVICE = new VariantService();
 
     private DIContainer() {
         throw new IllegalStateException("DIContainer class can't be instanced");
@@ -42,43 +42,43 @@ public class DIContainer {
 
 
     public static PuzzleRepository puzzleRepositoryInstance() {
-        return puzzleRepository;
+        return PUZZLE_REPOSITORY;
     }
 
     public static QuestionRepository questionRepositoryInstance() {
-        return questionRepository;
+        return QUESTION_REPOSITORY;
     }
 
     public static ResultRepository resultRepositoryInstance() {
-        return resultRepository;
+        return RESULT_REPOSITORY;
     }
 
     public static UserRepository userRepositoryInstance() {
-        return userRepository;
+        return USER_REPOSITORY;
     }
 
     public static VariantRepository variantRepositoryInstance() {
-        return variantRepository;
+        return VARIANT_REPOSITORY;
     }
 
     public static PuzzleService puzzleServiceInstance() {
-        return puzzleService;
+        return PUZZLE_SERVICE;
     }
 
     public static QuestionService questionServiceInstance() {
-        return questionService;
+        return QUESTION_SERVICE;
     }
 
     public static ResultService resultServiceInstance() {
-        return resultService;
+        return RESULT_SERVICE;
     }
 
     public static UserService userServiceInstance() {
-        return userService;
+        return USER_SERVICE;
     }
 
     public static VariantService variantServiceInstance() {
-        return variantService;
+        return VARIANT_SERVICE;
     }
 
 }
