@@ -1,10 +1,6 @@
 package com.karnov.crud.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -19,9 +15,6 @@ public class Variant implements Serializable {
     private long id;
 
     @Column(nullable = false)
-    private Question question;
-
-    @Column(nullable = false)
     private String variantText;
 
     @Column
@@ -29,6 +22,10 @@ public class Variant implements Serializable {
 
     @Column(nullable = false)
     private boolean variantIsCorrect;
+
+    @ManyToOne
+    @JoinColumn(name = "questionId")
+    private Question question;
 
     public long getId() {
         return id;

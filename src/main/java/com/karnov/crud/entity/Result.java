@@ -1,11 +1,8 @@
 package com.karnov.crud.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -28,11 +25,19 @@ public class Result implements Serializable {
     @Column(nullable = false)
     private Puzzle puzzle;
 
+    //    @ElementCollection(fetch=FetchType.EAGER)
+//    @CollectionTable(name = "Question", joinColumns = @JoinColumn(name = "questionId"))
+//    @MapKeyColumn(name="question")
+//    @Column(name = "mapValue")
     @Column(nullable = false)
-    private Map<Question, Variant> rightAnswers;
+    private Map<Question, Variant> rightAnswers = new HashMap<Question, Variant>();
 
+    //    @ElementCollection(fetch=FetchType.EAGER)
+//    @CollectionTable(name = "FOO_TABLE", joinColumns = @JoinColumn(name = "fooId"))
+//    @MapKeyColumn(name="mapKey")
+//    @Column(name = "mapValue")
     @Column(nullable = false)
-    private Map<Question, Variant> mistakenAnswers;
+    private Map<Question, Variant> mistakenAnswers = new HashMap<Question, Variant>();
 
     public long getId() {
         return id;

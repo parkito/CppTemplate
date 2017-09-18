@@ -1,10 +1,6 @@
 package com.karnov.crud.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -25,7 +21,11 @@ public class Question implements Serializable {
     @Column(nullable = false)
     private double weight;
 
-    @Column
+    @ManyToOne
+    @JoinColumn(name = "questionId")
+    private Puzzle puzzle;
+
+    @OneToMany(mappedBy = "question")
     private List<Variant> variants;
 
     public long getId() {
