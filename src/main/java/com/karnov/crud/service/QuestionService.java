@@ -5,7 +5,7 @@ import com.karnov.crud.entity.Variant;
 import com.karnov.crud.exception.EntityCreateException;
 import com.karnov.crud.repository.api.QuestionRepository;
 
-import static com.karnov.crud.utility.DIContainer.questionRepositoryInstance;
+//import static com.karnov.crud.utility.DIContainer.questionRepositoryInstance;
 
 /**
  * @author Artem Karnov @date 15.09.2017.
@@ -13,7 +13,7 @@ import static com.karnov.crud.utility.DIContainer.questionRepositoryInstance;
  */
 public class QuestionService {
 
-    private QuestionRepository questionRepository = questionRepositoryInstance();
+    private QuestionRepository questionRepository = null;
 
     public boolean addVariant(Question question, String variantText, boolean isVariantCorrect) {
         Variant variant = new Variant();

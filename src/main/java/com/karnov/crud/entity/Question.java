@@ -2,6 +2,7 @@ package com.karnov.crud.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,11 +23,10 @@ public class Question implements Serializable {
     private double weight;
 
     @ManyToOne
-    @JoinColumn(name = "questionId")
     private Puzzle puzzle;
 
-    @OneToMany(mappedBy = "question")
-    private List<Variant> variants;
+    @OneToMany
+    private List<Variant> variants = new ArrayList<>();
 
     public long getId() {
         return id;

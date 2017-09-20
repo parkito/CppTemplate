@@ -15,26 +15,29 @@ public class PuzzleRepositoryImpl extends GenericRepositoryImpl<Puzzle, Long> im
 
     @Override
     public Puzzle findPuzzleByTitle(String title) throws RepositoryException {
-        try {
-            return (Puzzle) entityManager
-                    .createQuery("select p from Puzzle p where p.title=:title")
-                    .setParameter("title", title)
-                    .getSingleResult();
-        } catch (PersistenceException ex) {
-            throw new RepositoryException("Entity wasn't found: " + title, ex);
-        }
+//        try {
+//            return (Puzzle) entityManager
+//                    .createQuery("select p from Puzzle p where p.title=:title")
+//                    .setParameter("title", title)
+//                    .getSingleResult();
+//        } catch (PersistenceException ex) {
+//            throw new RepositoryException("Entity wasn't found: " + title, ex);
+//        }
+        return null;
     }
 
     @Override
     public List<Puzzle> findPuzzleByTitle(List<String> titles) throws RepositoryException {
-        try {
-            return entityManager
-                    .createQuery("select p from Puzzle p where p.title in :titles")
-                    .setParameter("titles", titles)
-                    .getResultList();
-        } catch (PersistenceException ex) {
-            throw new RepositoryException("Entities weren't found: " + titles, ex);
-        }
+//        try {
+//            return entityManager
+//                    .createQuery("select p from Puzzle p where p.title in :titles")
+//                    .setParameter("titles", titles)
+//                    .getResultList();
+//        } catch (PersistenceException ex) {
+//            throw new RepositoryException("Entities weren't found: " + titles, ex);
+//        }
+        return null;
+
     }
 
 }

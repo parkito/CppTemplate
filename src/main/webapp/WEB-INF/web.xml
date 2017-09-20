@@ -20,12 +20,12 @@
     </session-config>
 
     <servlet>
-        <servlet-name>UserRegistrationController</servlet-name>
-        <servlet-class>com.karnov.crud.controller.UserRegistrationController</servlet-class>
+        <servlet-name>MainPageController</servlet-name>
+        <servlet-class>com.karnov.crud.controller.MainPageController</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>UserRegistrationController</servlet-name>
+        <servlet-name>MainPageController</servlet-name>
         <url-pattern>/init</url-pattern>
     </servlet-mapping>
 

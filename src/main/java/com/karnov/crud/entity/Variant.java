@@ -24,7 +24,6 @@ public class Variant implements Serializable {
     private boolean variantIsCorrect;
 
     @ManyToOne
-    @JoinColumn(name = "questionId")
     private Question question;
 
     public long getId() {

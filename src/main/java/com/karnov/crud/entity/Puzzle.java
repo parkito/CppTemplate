@@ -24,7 +24,7 @@ public class Puzzle implements Serializable {
     @Column(nullable = false)
     private double weight;
 
-    @OneToMany(mappedBy="puzzle")
+    @OneToMany
     private List<Question> questions;
 
     public long getId() {

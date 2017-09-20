@@ -2,8 +2,6 @@ package com.karnov.crud.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author Artem Karnov @date 15.09.2017.
@@ -19,25 +17,25 @@ public class Result implements Serializable {
     @Column(nullable = false)
     private double score;
 
-    @Column(nullable = false)
-    private User user;
+    @ManyToOne
+    private Users user;
 
-    @Column(nullable = false)
+    @ManyToOne
     private Puzzle puzzle;
 
     //    @ElementCollection(fetch=FetchType.EAGER)
 //    @CollectionTable(name = "Question", joinColumns = @JoinColumn(name = "questionId"))
 //    @MapKeyColumn(name="question")
 //    @Column(name = "mapValue")
-    @Column(nullable = false)
-    private Map<Question, Variant> rightAnswers = new HashMap<Question, Variant>();
+//    @Column(nullable = false)
+//    private Map<Question, Variant> rightAnswers = new HashMap<Question, Variant>();
 
     //    @ElementCollection(fetch=FetchType.EAGER)
 //    @CollectionTable(name = "FOO_TABLE", joinColumns = @JoinColumn(name = "fooId"))
 //    @MapKeyColumn(name="mapKey")
 //    @Column(name = "mapValue")
-    @Column(nullable = false)
-    private Map<Question, Variant> mistakenAnswers = new HashMap<Question, Variant>();
+//    @Column(nullable = false)
+//    private Map<Question, Variant> mistakenAnswers = new HashMap<Question, Variant>();
 
     public long getId() {
         return id;
@@ -55,11 +53,11 @@ public class Result implements Serializable {
         this.score = score;
     }
 
-    public User getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 
@@ -71,21 +69,21 @@ public class Result implements Serializable {
         this.puzzle = puzzle;
     }
 
-    public Map<Question, Variant> getRightAnswers() {
-        return rightAnswers;
-    }
-
-    public void setRightAnswers(Map<Question, Variant> rightAnswers) {
-        this.rightAnswers = rightAnswers;
-    }
-
-    public Map<Question, Variant> getMistakenAnswers() {
-        return mistakenAnswers;
-    }
-
-    public void setMistakenAnswers(Map<Question, Variant> mistakenAnswers) {
-        this.mistakenAnswers = mistakenAnswers;
-    }
+//    public Map<Question, Variant> getRightAnswers() {
+//        return rightAnswers;
+//    }
+//
+//    public void setRightAnswers(Map<Question, Variant> rightAnswers) {
+//        this.rightAnswers = rightAnswers;
+//    }
+//
+//    public Map<Question, Variant> getMistakenAnswers() {
+//        return mistakenAnswers;
+//    }
+//
+//    public void setMistakenAnswers(Map<Question, Variant> mistakenAnswers) {
+//        this.mistakenAnswers = mistakenAnswers;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -119,8 +117,8 @@ public class Result implements Serializable {
                 ", score=" + score +
                 ", user=" + user +
                 ", puzzle=" + puzzle +
-                ", rightAnswers=" + rightAnswers +
-                ", mistakenAnswers=" + mistakenAnswers +
+//                ", rightAnswers=" + rightAnswers +
+//                ", mistakenAnswers=" + mistakenAnswers +
                 '}';
     }
 
