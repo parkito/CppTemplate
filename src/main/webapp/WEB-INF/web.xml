@@ -19,15 +19,15 @@
         <session-timeout>30</session-timeout>
     </session-config>
 
-    <!--<servlet>-->
-        <!--<servlet-name>ExitServlet</servlet-name>-->
-        <!--<servlet-class>servlets.ExitServlet</servlet-class>-->
-    <!--</servlet>-->
+    <servlet>
+        <servlet-name>UserRegistrationController</servlet-name>
+        <servlet-class>com.karnov.crud.controller.UserRegistrationController</servlet-class>
+    </servlet>
 
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>ExitServlet</servlet-name>-->
-        <!--<url-pattern>/Exit</url-pattern>-->
-    <!--</servlet-mapping>-->
+    <servlet-mapping>
+        <servlet-name>UserRegistrationController</servlet-name>
+        <url-pattern>/init</url-pattern>
+    </servlet-mapping>
 
     <!--<filter>-->
         <!--<filter-name>LoginFilter</filter-name>-->

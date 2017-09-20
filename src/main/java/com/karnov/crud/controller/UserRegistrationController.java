@@ -1,5 +1,8 @@
 package com.karnov.crud.controller;
 
+import com.karnov.crud.service.UserService;
+import com.karnov.crud.utility.DIContainer;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +14,8 @@ import java.io.IOException;
  * artem.karnov@t-systems.com
  */
 public class UserRegistrationController extends HttpServlet {
+
+    private UserService userService = DIContainer.userServiceInstance();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

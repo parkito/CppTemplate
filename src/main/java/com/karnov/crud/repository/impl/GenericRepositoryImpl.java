@@ -5,6 +5,7 @@ import com.karnov.crud.exception.EntityDeleteException;
 import com.karnov.crud.exception.EntityUpdateException;
 import com.karnov.crud.exception.RepositoryException;
 import com.karnov.crud.repository.api.GenericRepository;
+import org.hibernate.cfg.Configuration;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -27,7 +28,7 @@ public abstract class GenericRepositoryImpl<E, K> implements GenericRepository<E
 
     static {
         try {
-            sessionFactory = Persistence.createEntityManagerFactory("hibernate-annotation.cfg.xml");
+            sessionFactory = new Configuration().configure("classpath:hibernate.cfg.xml").buildSessionFactory();
             entityManager = sessionFactory.createEntityManager();
         } catch (Throwable ex) {
             throw new ExceptionInInitializerError(ex);
