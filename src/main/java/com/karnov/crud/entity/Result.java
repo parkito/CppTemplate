@@ -1,9 +1,13 @@
 package com.karnov.crud.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author Artem Karnov @date 15.09.2017.
@@ -19,25 +23,27 @@ public class Result implements Serializable {
     @Column(nullable = false)
     private double score;
 
-    @Column(nullable = false)
-    private User user;
+    @ManyToOne
+    @JoinColumn(name = "personId", nullable = false)
+    private Person person;
 
-    @Column(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "puzzleId", nullable = false)
     private Puzzle puzzle;
 
     //    @ElementCollection(fetch=FetchType.EAGER)
 //    @CollectionTable(name = "Question", joinColumns = @JoinColumn(name = "questionId"))
 //    @MapKeyColumn(name="question")
 //    @Column(name = "mapValue")
-    @Column(nullable = false)
-    private Map<Question, Variant> rightAnswers = new HashMap<Question, Variant>();
+//    @Column(nullable = false)
+//    private Map<Question, Variant> rightAnswers = new HashMap<Question, Variant>();
 
     //    @ElementCollection(fetch=FetchType.EAGER)
 //    @CollectionTable(name = "FOO_TABLE", joinColumns = @JoinColumn(name = "fooId"))
 //    @MapKeyColumn(name="mapKey")
 //    @Column(name = "mapValue")
-    @Column(nullable = false)
-    private Map<Question, Variant> mistakenAnswers = new HashMap<Question, Variant>();
+//    @Column(nullable = false)
+//    private Map<Question, Variant> mistakenAnswers = new HashMap<Question, Variant>();
 
     public long getId() {
         return id;
@@ -55,12 +61,12 @@ public class Result implements Serializable {
         this.score = score;
     }
 
-    public User getUser() {
-        return user;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
     public Puzzle getPuzzle() {
@@ -71,21 +77,6 @@ public class Result implements Serializable {
         this.puzzle = puzzle;
     }
 
-    public Map<Question, Variant> getRightAnswers() {
-        return rightAnswers;
-    }
-
-    public void setRightAnswers(Map<Question, Variant> rightAnswers) {
-        this.rightAnswers = rightAnswers;
-    }
-
-    public Map<Question, Variant> getMistakenAnswers() {
-        return mistakenAnswers;
-    }
-
-    public void setMistakenAnswers(Map<Question, Variant> mistakenAnswers) {
-        this.mistakenAnswers = mistakenAnswers;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -96,7 +87,7 @@ public class Result implements Serializable {
 
         if (id != result.id) return false;
         if (Double.compare(result.score, score) != 0) return false;
-        if (user != null ? !user.equals(result.user) : result.user != null) return false;
+        if (person != null ? !person.equals(result.person) : result.person != null) return false;
         return puzzle != null ? puzzle.equals(result.puzzle) : result.puzzle == null;
     }
 
@@ -107,7 +98,7 @@ public class Result implements Serializable {
         result = (int) (id ^ (id >>> 32));
         temp = Double.doubleToLongBits(score);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (person != null ? person.hashCode() : 0);
         result = 31 * result + (puzzle != null ? puzzle.hashCode() : 0);
         return result;
     }
@@ -117,10 +108,8 @@ public class Result implements Serializable {
         return "Result{" +
                 "id=" + id +
                 ", score=" + score +
-                ", user=" + user +
+                ", person=" + person +
                 ", puzzle=" + puzzle +
-                ", rightAnswers=" + rightAnswers +
-                ", mistakenAnswers=" + mistakenAnswers +
                 '}';
     }
 

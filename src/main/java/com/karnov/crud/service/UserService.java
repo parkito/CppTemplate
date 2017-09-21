@@ -1,6 +1,6 @@
 package com.karnov.crud.service;
 
-import com.karnov.crud.entity.User;
+import com.karnov.crud.entity.Person;
 import com.karnov.crud.exception.EntityCreateException;
 import com.karnov.crud.exception.RepositoryException;
 import com.karnov.crud.repository.api.UserRepository;
@@ -16,17 +16,17 @@ public class UserService {
 
     private UserRepository userRepository = userRepositoryInstance();
 
-    public boolean createUser(User user) {
+    public boolean createUser(Person person) {
         try {
-            encryptPassword(user.getPassword());
-            userRepository.create(user);
+            encryptPassword(person.getPassword());
+            userRepository.create(person);
             return true;
         } catch (EntityCreateException ex) {
             return false;
         }
     }
 
-    public User findUserByEmail(String email) {
+    public Person findUserByEmail(String email) {
         try {
             return userRepository.findUserByEmail(email);
         } catch (EntityCreateException ex) {
@@ -36,22 +36,22 @@ public class UserService {
 
     public boolean deleteUser(String email) {
         try {
-            User user = userRepository.findUserByEmail(email);
-            userRepository.delete(user);
+            Person person = userRepository.findUserByEmail(email);
+            userRepository.delete(person);
             return true;
         } catch (RepositoryException ex) {
             return false;
         }
     }
 
-    public boolean updateUser(User oldUser, User newUser) {
+    public boolean updateUser(Person oldPerson, Person newPerson) {
         try {
-            User user = userRepository.findUserByEmail(oldUser.getEmail());
-            newUser.setId(oldUser.getId());
-            if (!oldUser.getPassword().equals(newUser.getPassword())) {
-                newUser.setPassword(encryptPassword(newUser.getPassword()));
+            Person person = userRepository.findUserByEmail(oldPerson.getEmail());
+            newPerson.setId(oldPerson.getId());
+            if (!oldPerson.getPassword().equals(newPerson.getPassword())) {
+                newPerson.setPassword(encryptPassword(newPerson.getPassword()));
             }
-            userRepository.update(user);
+            userRepository.update(person);
             return true;
         } catch (RepositoryException ex) {
             return false;

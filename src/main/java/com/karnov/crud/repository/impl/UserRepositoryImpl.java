@@ -1,6 +1,6 @@
 package com.karnov.crud.repository.impl;
 
-import com.karnov.crud.entity.User;
+import com.karnov.crud.entity.Person;
 import com.karnov.crud.exception.RepositoryException;
 import com.karnov.crud.repository.api.UserRepository;
 
@@ -11,12 +11,12 @@ import java.util.List;
  * @author Artem Karnov @date 15.09.2017.
  * artem.karnov@t-systems.com
  */
-public class UserRepositoryImpl extends GenericRepositoryImpl<User, Long> implements UserRepository {
+public class UserRepositoryImpl extends GenericRepositoryImpl<Person, Long> implements UserRepository {
 
     @Override
-    public User findUserByEmail(String email) throws RepositoryException {
+    public Person findUserByEmail(String email) throws RepositoryException {
         try {
-            return (User) entityManager
+            return (Person) entityManager
                     .createQuery("select u from User u where u.email=:email")
                     .setParameter("email", email)
                     .getSingleResult();
@@ -26,7 +26,7 @@ public class UserRepositoryImpl extends GenericRepositoryImpl<User, Long> implem
     }
 
     @Override
-    public List<User> findUsersByEmails(List<String> emails) throws RepositoryException {
+    public List<Person> findUsersByEmails(List<String> emails) throws RepositoryException {
         try {
             return entityManager
                     .createQuery("select u from User u where u.email in :emails")

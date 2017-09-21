@@ -12,6 +12,7 @@ public class Variant implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(insertable = false, updatable = false)
     private long id;
 
     @Column(nullable = false)

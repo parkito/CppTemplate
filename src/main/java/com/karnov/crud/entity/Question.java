@@ -22,7 +22,7 @@ public class Question implements Serializable {
     private double weight;
 
     @ManyToOne
-    @JoinColumn(name = "questionId")
+    @JoinColumn(name = "puzzleId")
     private Puzzle puzzle;
 
     @OneToMany(mappedBy = "question")
@@ -50,6 +50,14 @@ public class Question implements Serializable {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    public Puzzle getPuzzle() {
+        return puzzle;
+    }
+
+    public void setPuzzle(Puzzle puzzle) {
+        this.puzzle = puzzle;
     }
 
     public List<Variant> getVariants() {

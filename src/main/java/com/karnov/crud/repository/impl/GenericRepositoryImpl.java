@@ -9,7 +9,6 @@ import org.hibernate.cfg.Configuration;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 import javax.transaction.Transactional;
 import java.lang.reflect.ParameterizedType;
@@ -28,7 +27,7 @@ public abstract class GenericRepositoryImpl<E, K> implements GenericRepository<E
 
     static {
         try {
-            sessionFactory = new Configuration().configure("classpath:hibernate.cfg.xml").buildSessionFactory();
+            sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
             entityManager = sessionFactory.createEntityManager();
         } catch (Throwable ex) {
             throw new ExceptionInInitializerError(ex);
