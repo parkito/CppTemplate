@@ -1,13 +1,12 @@
 package com.karnov.crud.utility;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 import static com.karnov.crud.utility.Utility.encryptPassword;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class UtilityTest {
 

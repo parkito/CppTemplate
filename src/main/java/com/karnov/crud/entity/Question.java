@@ -1,6 +1,13 @@
 package com.karnov.crud.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.List;
 
@@ -77,7 +84,9 @@ public class Question implements Serializable {
 
         if (id != question.id) return false;
         if (Double.compare(question.weight, weight) != 0) return false;
-        return questionText != null ? questionText.equals(question.questionText) : question.questionText == null;
+        if (questionText != null ? !questionText.equals(question.questionText) : question.questionText != null)
+            return false;
+        return puzzle != null ? puzzle.equals(question.puzzle) : question.puzzle == null;
     }
 
     @Override
@@ -88,6 +97,7 @@ public class Question implements Serializable {
         result = 31 * result + (questionText != null ? questionText.hashCode() : 0);
         temp = Double.doubleToLongBits(weight);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (puzzle != null ? puzzle.hashCode() : 0);
         return result;
     }
 
@@ -97,6 +107,7 @@ public class Question implements Serializable {
                 "id=" + id +
                 ", questionText='" + questionText + '\'' +
                 ", weight=" + weight +
+                ", puzzle=" + puzzle +
                 ", variants=" + variants +
                 '}';
     }

@@ -1,7 +1,9 @@
 package com.karnov.crud.controller;
 
-import com.karnov.crud.service.UserService;
+import com.karnov.crud.entity.Person;
+import com.karnov.crud.service.PersonService;
 import com.karnov.crud.utility.DIContainer;
+import com.karnov.crud.utility.Utility;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +17,16 @@ import java.io.IOException;
  */
 public class UserRegistrationController extends HttpServlet {
 
-    private UserService userService = DIContainer.userServiceInstance();
+    private PersonService personService = DIContainer.userServiceInstance();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        Person person = new Person();
+        person.setEmail("email1");
+        person.setFirstName("firstName1");
+        person.setLastName("lastName1");
+        person.setLearningGroup("learningGroup1");
+        person.setPassword(Utility.encryptPassword("password1"));
+        personService.createPerson(person);
     }
 
 

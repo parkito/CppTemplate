@@ -5,7 +5,6 @@ import javax.crypto.spec.PBEKeySpec;
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.security.spec.InvalidKeySpecException;
 
 /**
  * @author Artem Karnov @date 15.09.2017.

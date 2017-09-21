@@ -45,6 +45,7 @@ public class Result implements Serializable {
 //    @Column(nullable = false)
 //    private Map<Question, Variant> mistakenAnswers = new HashMap<Question, Variant>();
 
+
     public long getId() {
         return id;
     }
@@ -76,7 +77,6 @@ public class Result implements Serializable {
     public void setPuzzle(Puzzle puzzle) {
         this.puzzle = puzzle;
     }
-
 
     @Override
     public boolean equals(Object o) {

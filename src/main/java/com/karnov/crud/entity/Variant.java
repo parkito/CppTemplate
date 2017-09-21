@@ -1,6 +1,12 @@
 package com.karnov.crud.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 /**
@@ -36,14 +42,6 @@ public class Variant implements Serializable {
         this.id = id;
     }
 
-    public Question getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
-
     public String getVariantText() {
         return variantText;
     }
@@ -68,6 +66,14 @@ public class Variant implements Serializable {
         this.variantIsCorrect = variantIsCorrect;
     }
 
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,18 +83,18 @@ public class Variant implements Serializable {
 
         if (id != variant.id) return false;
         if (variantIsCorrect != variant.variantIsCorrect) return false;
-        if (question != null ? !question.equals(variant.question) : variant.question != null) return false;
         if (variantText != null ? !variantText.equals(variant.variantText) : variant.variantText != null) return false;
-        return answerField != null ? answerField.equals(variant.answerField) : variant.answerField == null;
+        if (answerField != null ? !answerField.equals(variant.answerField) : variant.answerField != null) return false;
+        return question != null ? question.equals(variant.question) : variant.question == null;
     }
 
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (question != null ? question.hashCode() : 0);
         result = 31 * result + (variantText != null ? variantText.hashCode() : 0);
         result = 31 * result + (answerField != null ? answerField.hashCode() : 0);
         result = 31 * result + (variantIsCorrect ? 1 : 0);
+        result = 31 * result + (question != null ? question.hashCode() : 0);
         return result;
     }
 
@@ -96,10 +102,10 @@ public class Variant implements Serializable {
     public String toString() {
         return "Variant{" +
                 "id=" + id +
-                ", question=" + question +
                 ", variantText='" + variantText + '\'' +
                 ", answerField='" + answerField + '\'' +
                 ", variantIsCorrect=" + variantIsCorrect +
+                ", question=" + question +
                 '}';
     }
 

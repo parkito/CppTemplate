@@ -86,13 +86,39 @@ public class Person implements Serializable {
         this.learningGroup = learningGroup;
     }
 
-//    public List<Result> getResults() {
-//        return results;
-//    }
-//
-//    public void setResults(List<Result> results) {
-//        this.results = results;
-//    }
+    public List<Result> getResults() {
+        return results;
+    }
+
+    public void setResults(List<Result> results) {
+        this.results = results;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        if (id != person.id) return false;
+        if (email != null ? !email.equals(person.email) : person.email != null) return false;
+        if (firstName != null ? !firstName.equals(person.firstName) : person.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(person.lastName) : person.lastName != null) return false;
+        if (password != null ? !password.equals(person.password) : person.password != null) return false;
+        return learningGroup != null ? learningGroup.equals(person.learningGroup) : person.learningGroup == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (learningGroup != null ? learningGroup.hashCode() : 0);
+        return result;
+    }
 
     @Override
     public String toString() {
@@ -101,8 +127,9 @@ public class Person implements Serializable {
                 ", email='" + email + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", password='" + password + '\'' +
                 ", learningGroup='" + learningGroup + '\'' +
-//                ", results=" + results +
+                ", results=" + results +
                 '}';
     }
 
