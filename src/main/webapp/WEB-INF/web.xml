@@ -26,7 +26,7 @@
 
     <servlet-mapping>
         <servlet-name>UserRegistrationController</servlet-name>
-        <url-pattern>/init</url-pattern>
+        <url-pattern>/register</url-pattern>
     </servlet-mapping>
 
     <!--<filter>-->
