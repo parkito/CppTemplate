@@ -18,13 +18,14 @@ public class UserRegistrationController extends HttpServlet {
     private PersonService personService = DIContainer.userServiceInstance();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("/location.jsp");
+        response.sendRedirect("/ee-crud/registration.jsp");
     }
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+
         System.out.println(username + " " + password);
     }
 }

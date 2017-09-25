@@ -7,11 +7,11 @@ $(document).ready(function () {
         if (name == '' || email == '' || password == '' || cpassword == '') {
             alert("Please fill all fields...!!!!!!");
         } else if ((password.length) < 8) {
-            alert("Password should atleast 8 character in length...!!!!!!");
+            alert("Password should at least 8 character in length...!!!!!!");
         } else if (!(password).match(cpassword)) {
             alert("Your passwords don't match. Try again?");
         } else {
-            $.post("/register", {
+            $.post("/ee-crud/register", {
                 name: name,
                 email: email,
                 password: password
