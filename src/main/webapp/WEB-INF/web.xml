@@ -21,7 +21,7 @@
 
     <servlet>
         <servlet-name>UserRegistrationController</servlet-name>
-        <servlet-class>com.karnov.crud.controller.UserRegistrationController</servlet-class>
+        <servlet-class>com.karnov.crud.controller.person.UserRegistrationController</servlet-class>
     </servlet>
 
     <servlet-mapping>

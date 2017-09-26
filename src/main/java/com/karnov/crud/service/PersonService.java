@@ -5,6 +5,8 @@ import com.karnov.crud.exception.EntityCreateException;
 import com.karnov.crud.exception.RepositoryException;
 import com.karnov.crud.repository.api.PersonRepository;
 
+import javax.persistence.EntityNotFoundException;
+
 import static com.karnov.crud.utility.DIContainer.userRepositoryInstance;
 import static com.karnov.crud.utility.Utility.encryptPassword;
 
@@ -26,10 +28,10 @@ public class PersonService {
         }
     }
 
-    public Person findUserByEmail(String email) {
+    public Person findPersonByEmail(String email) {
         try {
             return personRepository.findUserByEmail(email);
-        } catch (EntityCreateException ex) {
+        } catch (RepositoryException ex) {
             return null;
         }
     }
