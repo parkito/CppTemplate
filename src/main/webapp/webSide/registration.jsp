@@ -8,7 +8,6 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,700italic,800italic,400,300,600,800'
           rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/validator.js"></script>
 </head>
 <body>
 <div class="container">
@@ -21,19 +20,19 @@
         <div class="form-display show" id="login">
             <h1>Login</h1>
 
-            <form action="" method="post" novalidate="">
+            <form action="" name="signIn">
                 <fieldset>
                     <ul>
                         <li>
                             <div class="item">
-                                <input data-validate-length-range="6" name="name" placeholder="Username"
+                                <input data-validate-length-range="6" id="name" placeholder="Username"
                                        required="required" type="text">
                             </div>
                         </li>
 
                         <li>
                             <div class="item">
-                                <input data-validate-length-range="6" name="password" placeholder="Password" required=
+                                <input data-validate-length-range="6" id="password" placeholder="Password" required=
                                         'required' type="password">
                             </div>
                         </li>
@@ -73,13 +72,11 @@
                         <li>
                             <div class="item">
                                 <label><input name="url" placeholder=
-                                        "Website link" required="required" type=
-                                                      "url"></label>
+                                        "Website link" required="required" type="url"></label>
                             </div>
                         </li>
 
-                        <li><input class="button-register" id='send' type=
-                                "submit" value="Sign Up"></li>
+                        <li><input class="button-register" id='send' type="submit" value="Sign Up"></li>
                     </ul>
                 </fieldset>
             </form>
@@ -87,40 +84,11 @@
     </div>
 </div>
 
-
+<script src="js/validator.js"></script>
 <script src="js/tabs.js"></script>
 
-
 <script>
-    // initialize the validator function
-    validator.message['date'] = 'not a real date';
 
-    // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
-    $('form')
-        .on('blur', 'input[required], input.optional, select.required', validator.checkField)
-        .on('change', 'select.required', validator.checkField)
-        .on('keypress', 'input[required][pattern]', validator.keypress);
-
-    $('.multi.required')
-        .on('keyup blur', 'input', function () {
-            validator.checkField.apply($(this).siblings().last()[0]);
-        });
-
-    // bind the validation to the form submit event
-    //$('#send').click('submit');//.prop('disabled', true);
-
-    $('form').submit(function (e) {
-        e.preventDefault();
-        var submit = true;
-        // evaluate the form using generic validaing
-        if (!validator.checkAll($(this))) {
-            submit = false;
-        }
-
-        if (submit)
-            this.submit();
-        return false;
-    });
 
 </script>
 

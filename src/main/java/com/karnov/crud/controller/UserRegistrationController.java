@@ -18,7 +18,7 @@ public class UserRegistrationController extends HttpServlet {
     private PersonService personService = DIContainer.userServiceInstance();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("/ee-crud/registration.jsp");
+        response.sendRedirect("/webSide/registration.jsp");
     }
 
 
