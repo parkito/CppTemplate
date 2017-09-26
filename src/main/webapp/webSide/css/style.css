@@ -129,7 +129,7 @@ form input[type=url] {
     margin-bottom: 10px;
     padding-left: 15px;
     background: #fff;
-    border: none;
+/*     border: none; */
     color: #545454;
 
     font-family: 'Open Sans';

@@ -25,7 +25,7 @@
                     <ul>
                         <li>
                             <div class="item">
-                                <input data-validate-length-range="6" id="name" placeholder="Username"
+                                <input data-validate-length-range="6" id="email" placeholder="E-mail"
                                        required="required" type="text">
                             </div>
                         </li>
@@ -43,7 +43,7 @@
             </form>
         </div>
 
-        <div class="form-display hide" id="register">
+        <div class="form-display hide" name="register">
             <h1>Register</h1>
 
             <form action="" method="post" novalidate="">
@@ -51,28 +51,33 @@
                     <ul>
                         <li>
                             <div class="item">
-                                <input data-validate-length-range="6" name="name" placeholder="Username" required=
-                                        "required" type="text">
+                                <input name="email" placeholder="E-mail" required="required" type="email">
                             </div>
                         </li>
 
                         <li>
                             <div class="item">
-                                <input data-validate-length="6,8" name="password" placeholder="Password"
-                                       required='required' type="text">
+                                <input name="password" placeholder="Password" required='required' type="password">
                             </div>
                         </li>
 
                         <li>
                             <div class="item">
-                                <input class='email' name="email" placeholder="Email" required="required" type="email">
+                                <input class='firstName' name="firstName" placeholder="First name" required="required"
+                                       type="text">
                             </div>
                         </li>
 
                         <li>
                             <div class="item">
-                                <label><input name="url" placeholder=
-                                        "Website link" required="required" type="url"></label>
+                                <label><input name="lastName" placeholder="Last name" required="required"
+                                              type="text"></label>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="item">
+                                <label><input name="group" placeholder="Group" required="required" type="text"></label>
                             </div>
                         </li>
 
