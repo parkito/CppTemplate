@@ -1,47 +1,68 @@
 $(document).ready(function () {
-    //Login validation
+    //Email validation
     $('#email').on('input', function () {
-        var input = $('#email').val();
-        var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+[a-z]*$/;
-        var is_email = re.test(input);
-        setBorderStyle(is_email, 'email')
+        emailValidation('email');
     });
+
+    $('#regEmail').on('input', function () {
+        emailValidation('regEmail');
+    });
+
     //password validation
     $('#password').on('input', function () {
-        var input = $('#password').val();
-        var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-        var is_correct_password = re.test(input);
-        setBorderStyle(is_correct_password, 'password')
+        passwordValidation('password')
+    });
+
+    $('#regPassword').on('input', function () {
+        passwordValidation('regPassword')
+    });
+
+    $('#regRepeatedPassword').on('input', function () {
+        passwordValidation('regRepeatedPassword')
     });
 
     //Text fields validation
     $('#firstName').on('input', function () {
         var input = $('#firstName').val();
-        setBorderStyle(validTestField(), 'firstName')
+        setBorderStyle(validTextField(), 'firstName')
     });
 
     $('#lastName').on('input', function () {
         var input = $('#lastName').val();
-        setBorderStyle(validTestField(), 'lastName')
+        setBorderStyle(validTextField(), 'lastName')
     });
 
     $('#group').on('input', function () {
         var input = $('#group').val();
-        setBorderStyle(validTestField(), 'group')
+        setBorderStyle(validTextField(), 'group')
     });
 
-    function validTestField(field) {
-        return field.length() > 4 && field.length() < 32;
+    function emailValidation(fieldName) {
+        var input = $('#' + fieldName).val();
+        var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+[a-z]*$/;
+        var is_email = re.test(input);
+        setBorderStyle(is_email, fieldName)
     }
 
-    function setBorderStyle(isCorrect, field) {
+    function passwordValidation(fieldName) {
+        var input = $('#'+fieldName).val();
+        var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        var is_correct_password = re.test(input);
+        setBorderStyle(is_correct_password, fieldName)
+    }
+
+    function validTextField(field) {
+        return field.length > 4 && field.length < 32;
+    }
+
+    function setBorderStyle(isCorrect, fieldName) {
         if (isCorrect) {
-            $('#' + field).css('border-width', '3px');
-            $('#' + field).css('border-color', 'green');
+            $('#' + fieldName).css('border-width', '3px');
+            $('#' + fieldName).css('border-color', 'green');
         }
         else {
-            $('#' + field).css('border-width', '3px');
-            $('#' + field).css('border-color', 'red');
+            $('#' + fieldName).css('border-width', '3px');
+            $('#' + fieldName).css('border-color', 'red');
         }
     }
-})
+});

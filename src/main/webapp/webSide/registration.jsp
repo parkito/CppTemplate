@@ -43,7 +43,7 @@
             </form>
         </div>
 
-        <div class="form-display hide" name="register">
+        <div class="form-display hide" id="register">
             <h1>Register</h1>
 
             <form action="" method="post" novalidate="">
@@ -51,33 +51,40 @@
                     <ul>
                         <li>
                             <div class="item">
-                                <input name="email" placeholder="E-mail" required="required" type="email">
+                                <input id="regEmail" placeholder="E-mail" required="required" type="email">
                             </div>
                         </li>
 
                         <li>
                             <div class="item">
-                                <input name="password" placeholder="Password" required='required' type="password">
+                                <input id="regPassword" placeholder="Password" required='required' type="password">
                             </div>
                         </li>
 
                         <li>
                             <div class="item">
-                                <input class='firstName' name="firstName" placeholder="First name" required="required"
+                                <input id="regRepeatedPassword" placeholder="Password" required='required'
+                                       type="password">
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="item">
+                                <input class='firstName' id="firstName" placeholder="First name" required="required"
                                        type="text">
                             </div>
                         </li>
 
                         <li>
                             <div class="item">
-                                <label><input name="lastName" placeholder="Last name" required="required"
+                                <label><input id="lastName" placeholder="Last name" required="required"
                                               type="text"></label>
                             </div>
                         </li>
 
                         <li>
                             <div class="item">
-                                <label><input name="group" placeholder="Group" required="required" type="text"></label>
+                                <label><input id="group" placeholder="Group" required="required" type="text"></label>
                             </div>
                         </li>
 
