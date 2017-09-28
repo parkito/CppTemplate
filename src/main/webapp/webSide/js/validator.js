@@ -14,14 +14,26 @@ $(document).ready(function () {
     });
 
     $('#regPassword').on('input', function () {
-        passwordValidation('regPassword')
+        passwordValidation('regPassword');
     });
 
     $('#regRepeatedPassword').on('input', function () {
-        passwordValidation('regRepeatedPassword')
+        var regPassword = $('#regPassword').val();
+        var regRepeatedPassword = $('#regRepeatedPassword').val();
+        passwordValidation('regRepeatedPassword');
+        if (isPasswordCorrect(regPassword) && isPasswordCorrect(regRepeatedPassword)) {
+            if (regPassword == regRepeatedPassword) {
+                $('#regRepeatedPassword').css('border-width', '3px');
+                $('#regRepeatedPassword').css('border-color', 'green');
+            }
+        }
+        else {
+            $('#regRepeatedPassword').css('border-width', '3px');
+            $('#regRepeatedPassword').css('border-color', 'red');
+        }
     });
 
-    //Text fields validation
+//Text fields validation
     $('#firstName').on('input', function () {
         var input = $('#firstName').val();
         setBorderStyle(validTextField(), 'firstName')
@@ -45,10 +57,13 @@ $(document).ready(function () {
     }
 
     function passwordValidation(fieldName) {
-        var input = $('#'+fieldName).val();
+        var input = $('#' + fieldName).val();
+        setBorderStyle(isPasswordCorrect(input), fieldName)
+    }
+
+    function isPasswordCorrect(password) {
         var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-        var is_correct_password = re.test(input);
-        setBorderStyle(is_correct_password, fieldName)
+        return re.test(password);
     }
 
     function validTextField(field) {
@@ -65,4 +80,5 @@ $(document).ready(function () {
             $('#' + fieldName).css('border-color', 'red');
         }
     }
-});
+})
+;
