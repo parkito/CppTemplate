@@ -88,7 +88,7 @@
                             </div>
                         </li>
 
-                        <li><input class="button-register" id='send' type="submit" value="Sign Up"></li>
+                        <li><input class="button-register" id='sendButton' type="" value="Sign Up"></li>
                     </ul>
                 </fieldset>
             </form>
@@ -96,7 +96,7 @@
     </div>
 </div>
 
-<script src="js/validator.js"></script>
+<script src="js/registerValidation.js"></script>
 <script src="js/tabs.js"></script>
 
 <script>

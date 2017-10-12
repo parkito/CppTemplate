@@ -25,6 +25,9 @@ $(document).ready(function () {
             if (regPassword == regRepeatedPassword) {
                 $('#regRepeatedPassword').css('border-width', '3px');
                 $('#regRepeatedPassword').css('border-color', 'green');
+            } else {
+                $('#regRepeatedPassword').css('border-width', '3px');
+                $('#regRepeatedPassword').css('border-color', 'red');
             }
         }
         else {
@@ -47,6 +50,24 @@ $(document).ready(function () {
     $('#group').on('input', function () {
         var input = $('#group').val();
         setBorderStyle(validTextField(), 'group')
+    });
+
+    $('#sendButton').on('click', function () {
+        console.log('here');
+        var request = $.ajax({
+            type: "POST",
+            url: '/register',
+            data: {email: $('#regEmail').val(), password: $('#regPassword').val()},
+
+            success: function (response) {
+                alert(response);
+                alert(response.password)
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+
     });
 
     function emailValidation(fieldName) {
