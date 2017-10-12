@@ -2,6 +2,7 @@ package com.karnov.crud.controller.person;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.karnov.crud.entity.Person;
+import com.karnov.crud.utility.ErrorMessageHolder;
 import com.karnov.crud.service.PersonService;
 import com.karnov.crud.utility.DIContainer;
 
@@ -25,15 +26,22 @@ public class UserRegistrationController extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ErrorMessageHolder errorMessageHolder = ErrorMessageHolder.Instance();
+
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-//        String firstName = request.getParameter("firstName");
-//        String lastName = request.getParameter("secondName");
-//        String learningGroup = request.getParameter("learningGroup");
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("secondName");
+        String learningGroup = request.getParameter("learningGroup");
+
+        System.out.println(lastName);
 
         Person person = new Person();
         person.setEmail(email);
         person.setPassword(password);
+        person.setFirstName(firstName);
+        person.setLastName(lastName);
+        person.setLearningGroup(learningGroup);
 
         System.out.println(email + " " + password);
 
