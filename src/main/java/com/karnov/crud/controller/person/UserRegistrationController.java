@@ -1,5 +1,6 @@
 package com.karnov.crud.controller.person;
 
+import com.karnov.crud.controller.controllerUtility.RedirectionUtility;
 import com.karnov.crud.entity.Person;
 import com.karnov.crud.service.PersonService;
 import com.karnov.crud.utility.DIContainer;
@@ -52,8 +53,14 @@ public class UserRegistrationController extends HttpServlet {
             person.setFirstName(firstName);
             person.setLastName(lastName);
             person.setLearningGroup(learningGroup);
+            boolean personCreated = personService.createPerson(person);
 
-            PageJsonWriter.writeObjectToPage(person, response);
+            if (personCreated) {
+                RedirectionUtility.redirectPersonToHomePage(person, response);
+            } else {
+                errorMessageHolder.addMessage("User already exists");
+                PageJsonWriter.writeObjectToPage(errorMessageHolder.getMessages(), response);
+            }
         } else {
             PageJsonWriter.writeObjectToPage(errorMessageHolder.getMessages(), response);
         }

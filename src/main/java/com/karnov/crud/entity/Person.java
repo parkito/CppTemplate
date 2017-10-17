@@ -1,5 +1,7 @@
 package com.karnov.crud.entity;
 
+import com.karnov.crud.utility.Utility;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -75,7 +77,7 @@ public class Person implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = Utility.encryptPassword(password);
     }
 
     public String getLearningGroup() {

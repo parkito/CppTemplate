@@ -8,7 +8,7 @@
 
     <error-page>
         <error-code>404</error-code>
-        <location>/webSide/404.jsp</location>
+        <location>/webSide/pages/404.jsp</location>
     </error-page>
 
     <welcome-file-list>
