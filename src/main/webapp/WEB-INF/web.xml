@@ -11,9 +11,9 @@
         <location>/webSide/pages/404.jsp</location>
     </error-page>
 
-    <welcome-file-list>
-        <welcome-file>webSide/index.jsp</welcome-file>
-    </welcome-file-list>
+    <!--<welcome-file-list>-->
+        <!--<welcome-file>/webSide/pages/registration.jsp</welcome-file>-->
+    <!--</welcome-file-list>-->
 
     <session-config>
         <session-timeout>30</session-timeout>
@@ -27,6 +27,11 @@
     <servlet-mapping>
         <servlet-name>UserRegistrationController</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserRegistrationController</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <!--<filter>-->

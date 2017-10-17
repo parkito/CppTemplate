@@ -18,11 +18,10 @@ import java.io.IOException;
  * artem.karnov@t-systems.com
  */
 public class UserRegistrationController extends HttpServlet {
-
     private PersonService personService = DIContainer.userServiceInstance();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("/webSide/registration.jsp");
+        response.sendRedirect("/webSide/pages/registration.jsp");
     }
 
 

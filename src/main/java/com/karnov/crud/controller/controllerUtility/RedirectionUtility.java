@@ -13,7 +13,7 @@ import java.io.IOException;
 public class RedirectionUtility {
 
     public static void redirectPersonToHomePage(Person person, HttpServletResponse response) throws IOException {
-        response.sendRedirect("/webSide/homePage.jsp");
+        response.sendRedirect("/webSide/pages/index.jsp");
         PageJsonWriter.writeObjectToPage(person, response);
     }
 }
