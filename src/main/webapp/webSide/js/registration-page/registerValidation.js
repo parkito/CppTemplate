@@ -52,24 +52,6 @@ $(document).ready(function () {
         setBorderStyle(validTextField(), 'group')
     });
 
-    $('#sendButton').on('click', function () {
-        console.log('here');
-        var request = $.ajax({
-            type: "POST",
-            url: '/register',
-            data: {email: $('#regEmail').val(), password: $('#regPassword').val()},
-
-            success: function (response) {
-                alert(response);
-                alert(response.password)
-            },
-            error: function () {
-                alert("error");
-            }
-        });
-
-    });
-
     function emailValidation(fieldName) {
         var input = $('#' + fieldName).val();
         var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+[a-z]*$/;

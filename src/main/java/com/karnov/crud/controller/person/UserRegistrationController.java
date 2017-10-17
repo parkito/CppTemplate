@@ -1,10 +1,10 @@
 package com.karnov.crud.controller.person;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.karnov.crud.entity.Person;
-import com.karnov.crud.utility.ErrorMessageHolder;
 import com.karnov.crud.service.PersonService;
 import com.karnov.crud.utility.DIContainer;
+import com.karnov.crud.utility.ErrorMessageHolder;
+import com.karnov.crud.utility.PageJsonWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,53 +34,29 @@ public class UserRegistrationController extends HttpServlet {
         String lastName = request.getParameter("secondName");
         String learningGroup = request.getParameter("learningGroup");
 
-        System.out.println(lastName);
+        if (email == null || email.isEmpty())
+            errorMessageHolder.addMessage("Email field is required");
+        if (password == null || password.isEmpty())
+            errorMessageHolder.addMessage("Password field is required");
+        if (firstName == null || firstName.isEmpty())
+            errorMessageHolder.addMessage("First name field is required");
+        if (lastName == null || lastName.isEmpty())
+            errorMessageHolder.addMessage("Last name field is required");
+        if (learningGroup == null || learningGroup.isEmpty())
+            errorMessageHolder.addMessage("Learning group field is required");
 
-        Person person = new Person();
-        person.setEmail(email);
-        person.setPassword(password);
-        person.setFirstName(firstName);
-        person.setLastName(lastName);
-        person.setLearningGroup(learningGroup);
+        if (!errorMessageHolder.isErrorsExists()) {
+            Person person = new Person();
+            person.setEmail(email);
+            person.setPassword(password);
+            person.setFirstName(firstName);
+            person.setLastName(lastName);
+            person.setLearningGroup(learningGroup);
 
-        System.out.println(email + " " + password);
-
-        // 2. initiate jackson mapper
-        ObjectMapper mapper = new ObjectMapper();
-
-        // 3. Convert received JSON to Article
-//        Article article = mapper.readValue(json, Article.class);
-
-        // 4. Set response type to JSON
-        response.setContentType("application/json");
-
-        // 5. Add article to List<Article>
-//        articles.add(article);
-
-        // 6. Send List<Article> as JSON to client
-        mapper.writeValue(response.getOutputStream(), person);
-
-        response.setStatus(HttpServletResponse.SC_OK);
-
-//        while (request.getAttributeNames().hasMoreElements()) {
-//            System.out.println(request.getAttributeNames().nextElement());
-//        }
-
-//        Person person = personService.findPersonByEmail(email);
-
-//        if (person == null) {
-//            Person personForPersisting = new Person();
-//            personForPersisting.setEmail(email);
-//            personForPersisting.setPassword(Utility.encryptPassword(password));
-//            personForPersisting.setFirstName(firstName);
-//            personForPersisting.setLastName(lastName);
-//            personForPersisting.setLearningGroup(learningGroup);
-//
-//            personService.createPerson(personForPersisting);
-//        } else {
-//            //send error message to js//send error message to js
-//
-//        }
+            PageJsonWriter.writeObjectToPage(person, response);
+        } else {
+            PageJsonWriter.writeObjectToPage(errorMessageHolder.getMessages(), response);
+        }
     }
 
 }

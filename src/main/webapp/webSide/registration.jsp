@@ -96,10 +96,10 @@
     </div>
 </div>
 
-<script src="js/registerValidation.js"></script>
-<script src="js/tabs.js"></script>
+<script src="js/registration-page/registerValidation.js"></script>
+<script src="js/registration-page/tabs.js"></script>
+<script src="js/registration-page/dataProcessor.js"></script>
 
-<script>
 
 
 </script>
