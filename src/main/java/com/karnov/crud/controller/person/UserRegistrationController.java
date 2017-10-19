@@ -26,6 +26,7 @@ public class UserRegistrationController extends HttpServlet {
     }
 
 
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ErrorMessageHolder errorMessageHolder = ErrorMessageHolder.Instance();
 

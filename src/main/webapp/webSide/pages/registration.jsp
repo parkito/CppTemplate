@@ -37,7 +37,7 @@
                             </div>
                         </li>
 
-                        <li><input class="button-login" type="submit" value="Login"></li>
+                        <li><input class="button-login" type="submit" id="submit" value="Login"></li>
                     </ul>
                 </fieldset>
             </form>
@@ -99,10 +99,6 @@
 <script src="../js/registration-page/registerValidation.js"></script>
 <script src="../js/registration-page/tabs.js"></script>
 <script src="../js/registration-page/dataProcessor.js"></script>
-
-
-
-</script>
 
 </body>
 </html>
