@@ -37,7 +37,7 @@
                             </div>
                         </li>
 
-                        <li><input class="button-login" type="submit" value="Login"></li>
+                        <li><input class="button-login" id="button-login" type="submit" value="Login"></li>
                     </ul>
                 </fieldset>
             </form>
