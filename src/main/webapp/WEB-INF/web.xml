@@ -12,7 +12,7 @@
     </error-page>
 
     <welcome-file-list>
-        <welcome-file>webSide/index.jsp</welcome-file>
+        <welcome-file>/webSide/pages/registration.jsp</welcome-file>
     </welcome-file-list>
 
     <session-config>
@@ -28,6 +28,22 @@
         <servlet-name>UserRegistrationController</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserRegistrationController</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HomePageController</servlet-name>
+        <servlet-class>com.karnov.crud.controller.person.HomePageController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HomePageController</servlet-name>
+        <url-pattern>/signIn</url-pattern>
+    </servlet-mapping>
+
 
     <!--<filter>-->
         <!--<filter-name>LoginFilter</filter-name>-->
