@@ -22,9 +22,8 @@ public class UserRegistrationController extends HttpServlet {
     private PersonService personService = DIContainer.userServiceInstance();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("/webSide/registration.jsp");
+        response.sendRedirect("/webSide/pages/registration.jsp");
     }
-
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -57,7 +56,7 @@ public class UserRegistrationController extends HttpServlet {
             boolean personCreated = personService.createPerson(person);
 
             if (personCreated) {
-                RedirectionUtility.redirectPersonToHomePage(person, response);
+                RedirectionUtility.redirectPersonToHomePage(person, response, request);
             } else {
                 errorMessageHolder.addMessage("User already exists");
                 PageJsonWriter.writeObjectToPage(errorMessageHolder.getMessages(), response);

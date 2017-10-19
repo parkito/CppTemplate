@@ -32,33 +32,7 @@ $('#submit').on('click', function () {
             email: $('#email').val(),
             password: $('#password').val()
 
-        },
-
-        success: function (response) {
-            successLogin(response);
-        },
-        error: function () {
-            alert("error");
         }
     });
-
-    function handleResponse(response) {
-        console.log(response);
-    }
 
 });
-
-function successLogin(response) {
-    var request = $.ajax({
-        type: "GET",
-        url: '/signIn',
-
-        success: function (response) {
-
-        },
-
-        error: function () {
-            alert("error");
-        }
-    });
-}

@@ -23,7 +23,7 @@ public class HomePageController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        resp.sendRedirect("/webSide/pages/index.jsp");
     }
 
     @Override
@@ -37,7 +37,7 @@ public class HomePageController extends HttpServlet {
         if (person != null) {
             boolean isPasswordCorrect = Utility.validatePassword(password, person.getPassword());
             if (isPasswordCorrect) {
-                RedirectionUtility.redirectPersonToHomePage(person, response);
+                RedirectionUtility.redirectPersonToHomePage(person, response, request);
             } else {
                 errorMessageHolder.addMessage("Password isn't correct");
                 PageJsonWriter.writeObjectToPage(errorMessageHolder.getMessages(), response);

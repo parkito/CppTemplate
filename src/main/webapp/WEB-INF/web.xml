@@ -29,6 +29,16 @@
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>HomePageController</servlet-name>
+        <servlet-class>com.karnov.crud.controller.person.HomePageController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HomePageController</servlet-name>
+        <url-pattern>/signIn</url-pattern>
+    </servlet-mapping>
+
     <!--<filter>-->
         <!--<filter-name>LoginFilter</filter-name>-->
         <!--<filter-class>servlets.AccessControlFilter</filter-class>-->
