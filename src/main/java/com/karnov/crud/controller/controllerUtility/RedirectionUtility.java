@@ -16,7 +16,6 @@ public class RedirectionUtility {
     public static void redirectPersonToHomePage(Person person, HttpServletResponse response, HttpServletRequest request) throws IOException {
         request.setAttribute("person", person);
         response.sendRedirect("/webSide/pages/index.jsp");
-        PageJsonWriter.writeObjectToPage(person, response);
     }
 }
 

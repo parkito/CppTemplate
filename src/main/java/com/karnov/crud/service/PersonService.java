@@ -7,6 +7,8 @@ import com.karnov.crud.repository.api.PersonRepository;
 
 import javax.persistence.EntityNotFoundException;
 
+import java.util.List;
+
 import static com.karnov.crud.utility.DIContainer.userRepositoryInstance;
 import static com.karnov.crud.utility.Utility.encryptPassword;
 
@@ -57,6 +59,14 @@ public class PersonService {
             return true;
         } catch (RepositoryException ex) {
             return false;
+        }
+    }
+
+    public List<Person> findAll() {
+        try {
+            return personRepository.getAll();
+        } catch (RepositoryException ex) {
+            return null;
         }
     }
 

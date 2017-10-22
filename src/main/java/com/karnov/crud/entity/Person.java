@@ -1,6 +1,7 @@
 package com.karnov.crud.entity;
 
 import com.karnov.crud.utility.Utility;
+import org.hibernate.annotations.NamedQuery;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,13 +17,14 @@ import java.util.List;
  * artem.karnov@t-systems.com
  */
 @Entity
+@NamedQuery(name = "Person.getAll", query = "SELECT p FROM Person p")
 public class Person implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)

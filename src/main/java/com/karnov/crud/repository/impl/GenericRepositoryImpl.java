@@ -99,7 +99,7 @@ public abstract class GenericRepositoryImpl<E, K> implements GenericRepository<E
     public List<E> getAll() throws RepositoryException {
         try {
             entityManager.getTransaction().begin();
-            List<E> result = entityManager.createNamedQuery(daoType.getSimpleName() + ".getAll", daoType).getResultList();
+                List<E> result = entityManager.createNamedQuery(daoType.getSimpleName() + ".getAll", daoType).getResultList();
             entityManager.getTransaction().commit();
             return result;
         } catch (PersistenceException ex) {

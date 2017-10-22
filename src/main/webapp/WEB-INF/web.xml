@@ -30,13 +30,23 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>SignInPageController</servlet-name>
+        <servlet-class>com.karnov.crud.controller.person.SignInPageController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SignInPageController</servlet-name>
+        <url-pattern>/signIn</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>HomePageController</servlet-name>
         <servlet-class>com.karnov.crud.controller.person.HomePageController</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>HomePageController</servlet-name>
-        <url-pattern>/signIn</url-pattern>
+        <url-pattern>/homePage</url-pattern>
     </servlet-mapping>
 
     <!--<filter>-->

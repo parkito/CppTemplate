@@ -26,7 +26,7 @@ $('#sendButton').on('click', function () {
 
 $('#submit').on('click', function () {
     var request = $.ajax({
-        type: "POST",
+        type: "GET",
         url: '/signIn',
         data: {
             email: $('#email').val(),
