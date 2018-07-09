@@ -5,102 +5,146 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>war</packaging>
 
-    <groupId>com.karnov.crud</groupId>
-    <artifactId>ee-crud</artifactId>
+    <groupId>ru.siksmfp.ejb</groupId>
+    <artifactId>crud</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <dependencies>
+    <properties>
+        <spring.verson>5.0.5.RELEASE</spring.verson>
+        <spring.security.verson>5.0.4.RELEASE</spring.security.verson>
+        <hibernate.version>5.2.16.Final</hibernate.version>
+        <derby.verson>10.14.1.0</derby.verson>
+        <log4j.version>2.8.2</log4j.version>
+        <aspects.version>1.9.0</aspects.version>
+        <java.servlet.api>4.0.1</java.servlet.api>
+        <java.servlet.jsp.api>2.3.2-b02</java.servlet.jsp.api>
+        <jstl.version>1.2</jstl.version>
+        <lo4j.version>2.8.2</lo4j.version>
+        <jaxb.api.version>2.2.11</jaxb.api.version>
+        <javax.activation.version>1.2.0</javax.activation.version>
+        <javax.annotation-api.version>1.3.1</javax.annotation-api.version>
+        <junit.version>4.12</junit.version>
+    </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+        </dependency>
+
+        <!--Hibernate-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.core.version}</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-            <version>2.1.0</version>
-        </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.connector.java.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.1.4</version>
-        </dependency>
-
+        <!--Support servlet API-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>${javax.servlet-api-version}</version>
-            <scope>provided</scope>
+            <version>${java.servlet.api}</version>
         </dependency>
-
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>javax.servlet.jsp-api</artifactId>
-            <version>${javax.servlet.jsp-api-version}</version>
-            <scope>provided</scope>
+            <version>${java.servlet.jsp.api}</version>
         </dependency>
-
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
-            <version>${jstl-version}</version>
+            <version>${jstl.version}</version>
         </dependency>
 
+        <!--In memory database-->
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.jupiter.version}</version>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>${derby.verson}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <!--Logging-->
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.1</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${lo4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${lo4j.version}</version>
+        </dependency>
+
+        <!--Aspects-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspects.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>${aspects.version}</version>
+        </dependency>
+
+        <!--Testing-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.verson}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--Support of Java 9+ for jaxb-->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb.api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.activation</groupId>
+            <artifactId>javax.activation</artifactId>
+            <version>${javax.activation.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>${javax.annotation-api.version}</version>
         </dependency>
 
     </dependencies>
 
-    <properties>
-        <mysql.connector.java.version>6.0.5</mysql.connector.java.version>
-        <hibernate.core.version>5.2.11.Final</hibernate.core.version>
-        <javax.servlet-api-version>4.0.0</javax.servlet-api-version>
-        <javax.servlet.jsp-api-version>2.3.1</javax.servlet.jsp-api-version>
-        <jstl-version>1.2</jstl-version>
-        <junit.jupiter.version>5.0.0</junit.jupiter.version>
-        <java-version>1.8</java-version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-
     <build>
-        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.7.0</version>
                 <configuration>
+                    <!--<release>10</release>-->
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                    <failOnMissingWebXml>true</failOnMissingWebXml>
-                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm</artifactId>
+                        <version>6.1.1</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>

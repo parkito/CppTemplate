@@ -40,10 +40,10 @@
         <property name="format_sql">false</property>
 
         <!-- Mapping with model class containing annotations -->
-        <mapping class="com.karnov.crud.entity.Person"/>
-        <mapping class="com.karnov.crud.entity.Puzzle"/>
-        <mapping class="com.karnov.crud.entity.Question"/>
-        <mapping class="com.karnov.crud.entity.Result"/>
-        <mapping class="com.karnov.crud.entity.Variant"/>
+        <mapping class="ru.siksmfp.ejb.crud.entity.Person"/>
+        <mapping class="ru.siksmfp.ejb.crud.entity.Puzzle"/>
+        <mapping class="ru.siksmfp.ejb.crud.entity.Question"/>
+        <mapping class="ru.siksmfp.ejb.crud.entity.Result"/>
+        <mapping class="ru.siksmfp.ejb.crud.entity.Variant"/>
     </session-factory>
 </hibernate-configuration>

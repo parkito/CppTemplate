@@ -21,7 +21,7 @@
 
     <servlet>
         <servlet-name>UserRegistrationController</servlet-name>
-        <servlet-class>com.karnov.crud.controller.person.UserRegistrationController</servlet-class>
+        <servlet-class>ru.siksmfp.ejb.crud.controller.person.UserRegistrationController</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -36,7 +36,7 @@
 
     <servlet>
         <servlet-name>HomePageController</servlet-name>
-        <servlet-class>com.karnov.crud.controller.person.HomePageController</servlet-class>
+        <servlet-class>ru.siksmfp.ejb.crud.controller.person.HomePageController</servlet-class>
     </servlet>
 
     <servlet-mapping>
