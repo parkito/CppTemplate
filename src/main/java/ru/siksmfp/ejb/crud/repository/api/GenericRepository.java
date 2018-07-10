@@ -9,13 +9,13 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 /**
- * @author Artem Karnov @date 4/17/2018.
+ * @author Artem Karnov @date 7/9/2018.
  * @email artem.karnov@t-systems.com
  */
 public class GenericRepository<E, K extends Serializable> implements IGenericRepository<E, K> {
 
     @PersistenceContext(unitName = "JavaEE")
-    private EntityManager entityManager;
+    protected EntityManager entityManager;
 
     protected Class<E> daoType;
 

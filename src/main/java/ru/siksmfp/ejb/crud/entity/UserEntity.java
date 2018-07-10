@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * @author Artem Karnov @date 4/17/2018.
+ * @author Artem Karnov @date 7/9/2018.
  * @email artem.karnov@t-systems.com
  */
 @Entity

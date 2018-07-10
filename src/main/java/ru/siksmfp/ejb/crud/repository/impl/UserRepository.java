@@ -1,8 +1,5 @@
 package ru.siksmfp.ejb.crud.repository.impl;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 import ru.siksmfp.ejb.crud.entity.Role;
 import ru.siksmfp.ejb.crud.entity.UserEntity;
 import ru.siksmfp.ejb.crud.exception.DAOException;
@@ -11,11 +8,12 @@ import ru.siksmfp.ejb.crud.repository.api.GenericRepository;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author Artem Karnov @date 4/17/2018.
+ * @author Artem Karnov @date 7/9/2018.
  * @email artem.karnov@t-systems.com
  */
 @Stateless
@@ -23,7 +21,7 @@ public class UserRepository extends GenericRepository<UserEntity, Long> {
 
     @PostConstruct
     public void setUp() {
-//        deleteAll();
+        deleteAll();
 
         UserEntity user1 = new UserEntity("email1", "name1", "secondName1", "1", Role.ADMIN);
         UserEntity user2 = new UserEntity("email2", "name2", "secondName2", "2", Role.USER);
@@ -40,8 +38,8 @@ public class UserRepository extends GenericRepository<UserEntity, Long> {
 
     public UserEntity findUserByEmail(String email) {
         UserEntity userEntity;
-        try (Session session = sessionFactory.openSession()) {
-            Query query = session.createQuery("from UserEntity where email =:email");
+        try {
+            Query query = entityManager.createQuery("from UserEntity where email =:email");
             query.setParameter("email", email);
             try {
                 userEntity = (UserEntity) query.getSingleResult();
@@ -55,12 +53,12 @@ public class UserRepository extends GenericRepository<UserEntity, Long> {
     }
 
     public void deleteUserByEmail(String email) {
-        try (Session session = sessionFactory.openSession()) {
-            Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("delete UserEntity where email =:email");
+        try {
+            entityManager.getTransaction().begin();
+            Query query = entityManager.createQuery("delete UserEntity where email =:email");
             query.setParameter("email", email);
             query.executeUpdate();
-            tx.commit();
+            entityManager.getTransaction().commit();
         } catch (Exception ex) {
             throw new DAOException("Can't delete user by email " + email, ex);
         }
