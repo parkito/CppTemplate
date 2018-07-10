@@ -1,52 +1,32 @@
 syntax: glob
-
-# Idea
+/mydb/
+/activemq-data/
 *.idea
-*.iws
+.gradle/
+/*/gradle/
+/target/
+/*/target/
+/build/
+/*/build/
 *.iml
 \.orig\..*$
 \.orig$
 \.chg\..*$
 \.rej$
 \.conflict\~$
+app.log
+derby.log
 
-# Compiled class
 *.class
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-# Package Files
-*.zip
-*.tar.gz
-*.rar
+# Package Files #
 *.jar
 *.war
 *.ear
+*.rar
 
-# Virtual machine crash logs
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Eclipse
-.classpath
-.project
-.settings/
-
-# Mac
-.DS_Store
-
-# Maven
-log/
-target/
-classes
-
-# Gradle
-build/
-.gradle
-out/
