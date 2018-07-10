@@ -1,13 +1,8 @@
 package ru.siksmfp.ejb.crud.repository.api;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
-import ru.siksmfp.ejb.crud.exception.DAOException;
-
-import javax.ejb.EJB;
+import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -19,8 +14,8 @@ import java.util.List;
  */
 public class GenericRepository<E, K extends Serializable> implements IGenericRepository<E, K> {
 
-    @PersistenceContext(unitName = "nm")
-    protected SessionFactory sessionFactory;
+    @PersistenceContext(unitName = "JavaEE")
+    private EntityManager entityManager;
 
     protected Class<E> daoType;
 
@@ -34,110 +29,70 @@ public class GenericRepository<E, K extends Serializable> implements IGenericRep
 
     @Override
     public void save(E entity) {
-        try (Session session = sessionFactory.openSession()) {
-            Transaction tx = session.beginTransaction();
-            session.save(entity);
-            tx.commit();
-        } catch (Exception ex) {
-            throw new DAOException("Can't save " + entity, ex);
-        }
+        entityManager.getTransaction().begin();
+        entityManager.persist(entity);
+        entityManager.getTransaction().commit();
     }
 
     @Override
     public void batchSave(List<E> entityList) {
-        try (Session session = sessionFactory.openSession()) {
-            int tableSize = entityList.size();
-            for (int i = 0; i < tableSize; i += batchSize) {
-                Transaction tx = session.beginTransaction();
-                int lastIndex = (i + batchSize) < tableSize ? (i + batchSize) : tableSize;
-                for (E currentEntity : entityList.subList(i, lastIndex)) {
-                    if (currentEntity != null)
-                        session.save(currentEntity);
-                }
-                tx.commit();
+        int tableSize = entityList.size();
+        for (int i = 0; i < tableSize; i += batchSize) {
+            entityManager.getTransaction().begin();
+            int lastIndex = (i + batchSize) < tableSize ? (i + batchSize) : tableSize;
+            for (E currentEntity : entityList.subList(i, lastIndex)) {
+                if (currentEntity != null)
+                    entityManager.persist(currentEntity);
             }
-        } catch (Exception ex) {
-            throw new DAOException("Can't save batch ", ex);
+            entityManager.getTransaction().commit();
         }
     }
 
     @Override
     public E find(K key) {
-        E result;
-        try (Session session = sessionFactory.openSession()) {
-            Transaction tx = session.beginTransaction();
-            result = session.get(daoType, key);
-            tx.commit();
-        } catch (Exception ex) {
-            throw new DAOException("Can't find " + key, ex);
-        }
-        return result;
+        return entityManager.find(daoType, key);
+
     }
 
     @Override
     public void update(E entity) {
-        try (Session session = sessionFactory.openSession()) {
-            Transaction tx = session.beginTransaction();
-            session.update(entity);
-            tx.commit();
-        } catch (Exception ex) {
-            throw new DAOException("Can't update " + entity, ex);
-        }
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
     }
 
     @Override
     public void delete(E entity) {
-        try (Session session = sessionFactory.openSession()) {
-            Transaction tx = session.beginTransaction();
-            session.delete(entity);
-            tx.commit();
-        } catch (Exception ex) {
-            throw new DAOException("Can't delete " + entity, ex);
-        }
+        entityManager.getTransaction().begin();
+        entityManager.remove(entity);
+        entityManager.getTransaction().commit();
     }
 
     @Override
     public List<E> getAll() {
-        List result;
-        try (Session session = sessionFactory.openSession()) {
-            Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from " + daoType.getSimpleName());
-            result = query.list();
-            tx.commit();
-        } catch (Exception ex) {
-            throw new DAOException("Can't find all ", ex);
-        }
-        return (List<E>) result;
+        return entityManager.createQuery("from " + daoType.getSimpleName()).getResultList();
     }
 
     @Override
     public void deleteAll() {
-        try (Session session = sessionFactory.openSession()) {
-            long tableSize = countElements();
-            for (int i = 0; i < tableSize; i += batchSize) {
-                Transaction tx = session.beginTransaction();
-                Query internalQuery = session.createQuery("from " + daoType.getSimpleName());
-                internalQuery.setFirstResult(0);
-                internalQuery.setMaxResults(batchSize);
-                List<E> list = internalQuery.list();
-                for (E e : list) {
-                    if (e != null)
-                        session.delete(e);
-                }
-                tx.commit();
+        long tableSize = countElements();
+        for (int i = 0; i < tableSize; i += batchSize) {
+            entityManager.getTransaction().begin();
+            Query internalQuery = entityManager.createQuery("from " + daoType.getSimpleName());
+            internalQuery.setFirstResult(0);
+            internalQuery.setMaxResults(batchSize);
+            List<E> list = internalQuery.getResultList();
+            for (E e : list) {
+                if (e != null)
+                    entityManager.remove(e);
             }
-        } catch (Exception ex) {
-            throw new DAOException("Can't delete all ", ex);
+            entityManager.getTransaction().commit();
         }
     }
 
     @Override
     public long countElements() {
-        try (Session session = sessionFactory.openSession()) {
-            Query query = session.createQuery("select count(1) from " + daoType.getSimpleName());
-            return (long) query.uniqueResult();
-        } catch (Exception ex) {
-            throw new DAOException("Can't calculate table size of " + daoType.getSimpleName(), ex);
-        }
+        Query query = entityManager.createQuery("select count(1) from " + daoType.getSimpleName());
+        return (long) query.getFirstResult();
     }
 }
