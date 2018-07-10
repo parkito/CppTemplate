@@ -120,13 +120,19 @@
             <version>${javax.annotation-api.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.openejb/openejb-core -->
         <dependency>
             <groupId>org.apache.openejb</groupId>
             <artifactId>openejb-core</artifactId>
             <version>4.7.5</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.glassfish.main.extras/glassfish-embedded-all -->
+        <dependency>
+            <groupId>org.glassfish.main.extras</groupId>
+            <artifactId>glassfish-embedded-all</artifactId>
+            <version>5.0</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 

@@ -7,6 +7,7 @@ import org.hibernate.query.Query;
 import ru.siksmfp.ejb.crud.exception.DAOException;
 
 import javax.ejb.EJB;
+import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -18,7 +19,7 @@ import java.util.List;
  */
 public class GenericRepository<E, K extends Serializable> implements IGenericRepository<E, K> {
 
-    @EJB
+    @PersistenceContext(unitName = "nm")
     protected SessionFactory sessionFactory;
 
     protected Class<E> daoType;

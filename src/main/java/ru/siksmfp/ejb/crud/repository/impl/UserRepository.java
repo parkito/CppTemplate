@@ -23,7 +23,7 @@ public class UserRepository extends GenericRepository<UserEntity, Long> {
 
     @PostConstruct
     public void setUp() {
-        deleteAll();
+//        deleteAll();
 
         UserEntity user1 = new UserEntity("email1", "name1", "secondName1", "1", Role.ADMIN);
         UserEntity user2 = new UserEntity("email2", "name2", "secondName2", "2", Role.USER);
