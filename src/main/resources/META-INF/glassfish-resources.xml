@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN"
+        "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+
+<resources>
+    <jdbc-connection-pool
+            name="MyPU"
+            res-type="javax.sql.DataSource"
+            datasource-classname="org.apache.derby.jdbc.EmbeddedDriver"
+            pool-resize-quantity="1"
+            max-pool-size="5"
+            steady-pool-size="0"
+            statement-timeout-in-seconds="30">
+        <!--<property name="User" value="root"></property>-->
+        <!--<property name="Password" value="root"></property>-->
+        <!--<property name="portNumber" value="3306"></property>-->
+        <!--<property name="dataBaseName" value="test"></property>-->
+        <!--<property name="serverName" value="localhost"></property>-->
+
+        <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+        <property name="javax.persistence.jdbc.url" value="jdbc:derby:mydb"/>
+        <property name="javax.persistence.jdbc.user" value="app"/>
+        <property name="javax.persistence.jdbc.password" value="derby"/>
+        <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect"/>
+        <property name="hibernate.hbm2ddl.auto" value="create"/>
+        <property name="hibernate.show_sql" value="true"/>
+        <property name="hibernate.format_sql" value="true"/>
+
+    </jdbc-connection-pool>
+    <jdbc-resource pool-name="java:app/jdbc/test_pool" jndi-name="java:app/jdbc/test"></jdbc-resource>
+</resources>

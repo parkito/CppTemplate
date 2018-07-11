@@ -12,9 +12,9 @@ import java.util.List;
  * @author Artem Karnov @date 7/9/2018.
  * @email artem.karnov@t-systems.com
  */
-public class GenericRepository<E, K extends Serializable> implements IGenericRepository<E, K> {
+public abstract class GenericRepository<E, K extends Serializable> implements IGenericRepository<E, K> {
 
-    @PersistenceContext(unitName = "JavaEE")
+    @PersistenceContext(unitName = "MyPU")
     protected EntityManager entityManager;
 
     protected Class<E> daoType;
