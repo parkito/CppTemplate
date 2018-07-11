@@ -13,7 +13,6 @@ import java.io.Serializable;
  * @email artem.karnov@t-systems.com
  */
 @Entity
-@Table(name = "User")
 public class UserEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,13 +1,10 @@
 package ru.siksmfp.ejb.crud.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import ru.siksmfp.ejb.crud.entity.UserEntity;
 import ru.siksmfp.ejb.crud.service.UsersService;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -24,8 +21,6 @@ import javax.ws.rs.core.MediaType;
 @Stateless
 public class UserController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
-
     @EJB
     private UsersService usersService;
 
@@ -33,8 +28,7 @@ public class UserController {
     @Path(value = "/find/{email}")
     @Produces(MediaType.APPLICATION_JSON)
     public UserEntity getUserByEmail(@PathParam("email") String email) {
-        LOGGER.error(email);
-       return usersService.findUserByEmail(email);
+        return usersService.findUserByEmail(email);
     }
 
     @PUT
