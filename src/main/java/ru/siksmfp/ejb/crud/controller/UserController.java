@@ -3,8 +3,7 @@ package ru.siksmfp.ejb.crud.controller;
 import ru.siksmfp.ejb.crud.entity.UserEntity;
 import ru.siksmfp.ejb.crud.service.UsersService;
 
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -17,15 +16,14 @@ import javax.ws.rs.core.MediaType;
  * @author Artem Karnov @date 7/9/2018.
  * @email artem.karnov@t-systems.com
  */
-@Path(value = "user")
-@Stateless
+@Path(value = "/user")
 public class UserController {
 
-    @EJB
+    @Inject
     private UsersService usersService;
 
     @GET
-    @Path(value = "/find/{email}")
+    @Path(value = "/{email}")
     @Produces(MediaType.APPLICATION_JSON)
     public UserEntity getUserByEmail(@PathParam("email") String email) {
         return usersService.findUserByEmail(email);

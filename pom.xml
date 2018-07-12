@@ -39,6 +39,12 @@
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.10.Final</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!--Support servlet API-->
         <dependency>
@@ -76,29 +82,12 @@
             <version>${lo4j.version}</version>
         </dependency>
 
-        <!--Aspects-->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>${aspects.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjtools</artifactId>
-            <version>${aspects.version}</version>
-        </dependency>
 
         <!--Testing-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.verson}</version>
             <scope>test</scope>
         </dependency>
 
@@ -119,29 +108,23 @@
             <version>${javax.annotation-api.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.openejb</groupId>
-            <artifactId>openejb-core</artifactId>
-            <version>4.7.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.glassfish.main.extras</groupId>
-            <artifactId>glassfish-embedded-all</artifactId>
-            <version>5.0</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.apache.openejb</groupId>-->
+        <!--<artifactId>openejb-core</artifactId>-->
+        <!--<version>4.7.5</version>-->
+        <!--</dependency>-->
 
         <!--<dependency>-->
-            <!--<groupId>fish.payara.extras</groupId>-->
-            <!--<artifactId>payara-micro</artifactId>-->
-            <!--<version>5.182</version>-->
+            <!--<groupId>org.glassfish.main.extras</groupId>-->
+            <!--<artifactId>glassfish-embedded-all</artifactId>-->
+            <!--<version>5.0</version>-->
         <!--</dependency>-->
 
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.197</version>
-            <scope>test</scope>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
@@ -172,5 +155,87 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+    <profile>
+        <id>swarm</id>
+        <properties>
+            <version.wildfly-swarm>2017.7.0</version.wildfly-swarm>
+        </properties>
+
+        <dependencies>
+            <dependency>
+                <groupId>org.wildfly.swarm</groupId>
+                <artifactId>jsf</artifactId>
+                <version>${version.wildfly-swarm}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.swarm</groupId>
+                <artifactId>cdi</artifactId>
+                <version>${version.wildfly-swarm}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.swarm</groupId>
+                <artifactId>jpa</artifactId>
+                <version>${version.wildfly-swarm}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.swarm</groupId>
+                <artifactId>ejb</artifactId>
+                <version>${version.wildfly-swarm}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>1.4.187</version>
+            </dependency>
+        </dependencies>
+
+        <build>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.5</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.19.1</version>
+                    <configuration>
+                        <skipTests>true</skipTests>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.6</version>
+                    <configuration>
+                        <failOnMissingWebXml>false</failOnMissingWebXml>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.wildfly.swarm</groupId>
+                    <artifactId>wildfly-swarm-plugin</artifactId>
+                    <version>${version.wildfly-swarm}</version>
+                    <executions>
+                        <execution>
+                            <id>package</id>
+                        </execution>
+                        <execution>
+                            <id>start</id>
+                        </execution>
+                        <execution>
+                            <id>stop</id>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+
+    </profile>
+</profiles>
 
 </project>

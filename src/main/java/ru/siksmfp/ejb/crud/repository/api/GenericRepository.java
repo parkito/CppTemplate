@@ -14,7 +14,7 @@ import java.util.List;
  */
 public abstract class GenericRepository<E, K extends Serializable> implements IGenericRepository<E, K> {
 
-    @PersistenceContext(unitName = "MyPU")
+    @PersistenceContext
     protected EntityManager entityManager;
 
     protected Class<E> daoType;

@@ -4,16 +4,17 @@ import ru.siksmfp.ejb.crud.entity.Role;
 import ru.siksmfp.ejb.crud.entity.UserEntity;
 import ru.siksmfp.ejb.crud.repository.impl.UserRepository;
 
-import javax.ejb.EJB;
-import javax.ejb.Singleton;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  * @author Artem Karnov @date 4/17/2018.
  * @email artem.karnov@t-systems.com
  */
-@Singleton
+@Stateless
 public class UsersService {
-    @EJB
+
+    @Inject
     private UserRepository userRepository;
 
     public UserEntity findUserByEmail(String email) {
