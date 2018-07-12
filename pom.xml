@@ -115,9 +115,9 @@
         <!--</dependency>-->
 
         <!--<dependency>-->
-            <!--<groupId>org.glassfish.main.extras</groupId>-->
-            <!--<artifactId>glassfish-embedded-all</artifactId>-->
-            <!--<version>5.0</version>-->
+        <!--<groupId>org.glassfish.main.extras</groupId>-->
+        <!--<artifactId>glassfish-embedded-all</artifactId>-->
+        <!--<version>5.0</version>-->
         <!--</dependency>-->
 
         <dependency>
@@ -157,85 +157,80 @@
     </build>
 
     <profiles>
-    <profile>
-        <id>swarm</id>
-        <properties>
-            <version.wildfly-swarm>2017.7.0</version.wildfly-swarm>
-        </properties>
+        <profile>
+            <id>swarm</id>
+            <properties>
+                <version.wildfly-swarm>2017.7.0</version.wildfly-swarm>
+            </properties>
 
-        <dependencies>
-            <dependency>
-                <groupId>org.wildfly.swarm</groupId>
-                <artifactId>jsf</artifactId>
-                <version>${version.wildfly-swarm}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wildfly.swarm</groupId>
-                <artifactId>cdi</artifactId>
-                <version>${version.wildfly-swarm}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wildfly.swarm</groupId>
-                <artifactId>jpa</artifactId>
-                <version>${version.wildfly-swarm}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wildfly.swarm</groupId>
-                <artifactId>ejb</artifactId>
-                <version>${version.wildfly-swarm}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.h2database</groupId>
-                <artifactId>h2</artifactId>
-                <version>1.4.187</version>
-            </dependency>
-        </dependencies>
-
-        <build>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.5</version>
-                    <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.19.1</version>
-                    <configuration>
-                        <skipTests>true</skipTests>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>2.6</version>
-                    <configuration>
-                        <failOnMissingWebXml>false</failOnMissingWebXml>
-                    </configuration>
-                </plugin>
-                <plugin>
+            <dependencies>
+                <!--<dependency>-->
+                <!--<groupId>org.wildfly.swarm</groupId>-->
+                <!--<artifactId>jsf</artifactId>-->
+                <!--<version>${version.wildfly-swarm}</version>-->
+                <!--</dependency>-->
+                <dependency>
                     <groupId>org.wildfly.swarm</groupId>
-                    <artifactId>wildfly-swarm-plugin</artifactId>
+                    <artifactId>cdi</artifactId>
                     <version>${version.wildfly-swarm}</version>
-                    <executions>
-                        <execution>
-                            <id>package</id>
-                        </execution>
-                        <execution>
-                            <id>start</id>
-                        </execution>
-                        <execution>
-                            <id>stop</id>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </build>
+                </dependency>
+                <dependency>
+                    <groupId>org.wildfly.swarm</groupId>
+                    <artifactId>jpa</artifactId>
+                    <version>${version.wildfly-swarm}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.wildfly.swarm</groupId>
+                    <artifactId>ejb</artifactId>
+                    <version>${version.wildfly-swarm}</version>
+                </dependency>
+            </dependencies>
 
-    </profile>
-</profiles>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.5</version>
+                        <configuration>
+                            <source>1.8</source>
+                            <target>1.8</target>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.19.1</version>
+                        <configuration>
+                            <skipTests>true</skipTests>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.6</version>
+                        <configuration>
+                            <failOnMissingWebXml>false</failOnMissingWebXml>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.wildfly.swarm</groupId>
+                        <artifactId>wildfly-swarm-plugin</artifactId>
+                        <version>${version.wildfly-swarm}</version>
+                        <executions>
+                            <execution>
+                                <id>package</id>
+                            </execution>
+                            <execution>
+                                <id>start</id>
+                            </execution>
+                            <execution>
+                                <id>stop</id>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+
+        </profile>
+    </profiles>
 
 </project>

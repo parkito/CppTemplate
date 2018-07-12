@@ -18,7 +18,7 @@ public class SetUpBean {
     private static final String JDBC_URL = "jdbc:derby:mydb;create=true";
 
     @PostConstruct
-    public void dbRegister() throws SQLException {
+    public void dbRegister(){
         Connection conn = null;
         try {
             Class.forName(DRIVER);
@@ -26,6 +26,10 @@ public class SetUpBean {
         } catch (Exception ex) {
             System.err.println(ex);
         }
-        System.out.println("Database created " + !conn.isClosed());
+        try {
+            System.out.println("Database created " + !conn.isClosed());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

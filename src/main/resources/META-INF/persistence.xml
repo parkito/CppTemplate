@@ -11,10 +11,6 @@
             <property name="javax.persistence.jdbc.user" value="app"/>
             <property name="javax.persistence.jdbc.password" value="derby"/>
 
-            <!--<property name="javax.persistence.jdbc.driver" value="org.h2.Driver "/>-->
-            <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:file:~/test2;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE"/>-->
-            <!--<property name="javax.persistence.jdbc.user" value="admin"/>-->
-            <!--<property name="javax.persistence.jdbc.password" value="password"/>-->
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
