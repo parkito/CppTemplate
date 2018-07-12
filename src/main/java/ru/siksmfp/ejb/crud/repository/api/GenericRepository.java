@@ -22,9 +22,9 @@ public abstract class GenericRepository<E, K extends Serializable> implements IG
     private int batchSize = 10;
 
     public GenericRepository() {
-//        Type t = getClass().getGenericSuperclass();
-//        ParameterizedType pt = (ParameterizedType) t;
-//        this.daoType = (Class<E>) pt.getActualTypeArguments()[0];
+        Type t = getClass().getGenericSuperclass();
+        ParameterizedType pt = (ParameterizedType) t;
+        this.daoType = (Class<E>) pt.getActualTypeArguments()[0];
     }
 
     @Override

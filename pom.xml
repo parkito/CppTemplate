@@ -131,10 +131,17 @@
             <version>5.0</version>
         </dependency>
 
+        <!--<dependency>-->
+            <!--<groupId>fish.payara.extras</groupId>-->
+            <!--<artifactId>payara-micro</artifactId>-->
+            <!--<version>5.182</version>-->
+        <!--</dependency>-->
+
         <dependency>
-            <groupId>fish.payara.extras</groupId>
-            <artifactId>payara-micro</artifactId>
-            <version>5.182</version>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.197</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
