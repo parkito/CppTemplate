@@ -1,8 +1,10 @@
-package ru.siksmfp.ejb.crud.conf;
+package ru.siksmfp.ejb.conf;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -18,7 +20,7 @@ public class SetUpBean {
     private static final String JDBC_URL = "jdbc:derby:mydb;create=true";
 
     @PostConstruct
-    public void dbRegister(){
+    public void dbRegister() {
         Connection conn = null;
         try {
             Class.forName(DRIVER);
