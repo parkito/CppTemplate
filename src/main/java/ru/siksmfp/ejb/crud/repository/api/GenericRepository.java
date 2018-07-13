@@ -5,7 +5,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -20,12 +19,6 @@ public abstract class GenericRepository<E, K extends Serializable> implements IG
     protected Class<E> daoType;
 
     private int batchSize = 10;
-
-    public GenericRepository() {
-        Type t = getClass().getGenericSuperclass();
-        ParameterizedType pt = (ParameterizedType) t;
-        this.daoType = (Class<E>) pt.getActualTypeArguments()[0];
-    }
 
     @Override
     public void save(E entity) {

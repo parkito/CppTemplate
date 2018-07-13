@@ -7,6 +7,7 @@ import ru.siksmfp.ejb.crud.repository.api.GenericRepository;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
+import javax.ejb.Stateless;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import java.util.Arrays;
@@ -16,8 +17,12 @@ import java.util.List;
  * @author Artem Karnov @date 7/9/2018.
  * @email artem.karnov@t-systems.com
  */
-@Singleton
+@Stateless
 public class UserRepository extends GenericRepository<UserEntity, Long> {
+
+    public UserRepository() {
+        this.daoType = UserEntity.class;
+    }
 
     @PostConstruct
     public void setUp() {

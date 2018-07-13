@@ -1,11 +1,12 @@
-package ru.siksmfp.ejb;
+package ru.siksmfp.ejb.crud;
 
 
 public class GenericReference {
     private String name;
     private String uri;
 
-    public GenericReference() {}
+    public GenericReference() {
+    }
 
     public GenericReference(String uri, String name) {
         this.uri = uri;
