@@ -1,15 +1,12 @@
-cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
-project(GreeterTests LANGUAGES CXX)
+project(GreeterTests
+  LANGUAGES CXX
+)
 
 # ---- Options ----
 
 option(ENABLE_TEST_COVERAGE "Enable test coverage" OFF)
-option(TEST_INSTALLED_VERSION "Test the version found by find_package" OFF)
-
-# --- Import tools ----
-
-include(../cmake/tools.cmake)
 
 # ---- Dependencies ----
 
@@ -18,54 +15,41 @@ include(../cmake/CPM.cmake)
 CPMAddPackage(
   NAME doctest
   GITHUB_REPOSITORY onqtam/doctest
-  GIT_TAG 2.3.7
+  VERSION 2.3.2
+  GIT_TAG 2.3.2
 )
 
-if(TEST_INSTALLED_VERSION)
-  find_package(Greeter REQUIRED)
-else()
-  CPMAddPackage(NAME Greeter SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
-endif()
+CPMAddPackage(
+  NAME Greeter
+  SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..
+)
 
 CPMAddPackage(
   NAME Format.cmake
   GITHUB_REPOSITORY TheLartians/Format.cmake
-  VERSION 1.6
-  OPTIONS # enable cmake formatting
-          "FORMAT_CHECK_CMAKE ON"
+  VERSION 1.0
 )
 
 # ---- Create binary ----
 
-file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
-add_executable(GreeterTests ${sources})
+file(GLOB GreeterTests_sources ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
+add_executable(GreeterTests ${GreeterTests_sources})
 target_link_libraries(GreeterTests doctest Greeter)
 
-set_target_properties(GreeterTests PROPERTIES CXX_STANDARD 17)
-
-# enable compiler warnings
-if(NOT TEST_INSTALLED_VERSION)
-  if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-    target_compile_options(Greeter PUBLIC -Wall -pedantic -Wextra -Werror)
-  elseif(MSVC)
-    target_compile_options(Greeter PUBLIC /W4 /WX)
-    target_compile_definitions(GreeterTests PUBLIC DOCTEST_CONFIG_USE_STD_HEADERS)
-  endif()
+if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+  set_target_properties(GreeterTests PROPERTIES CXX_STANDARD 17 COMPILE_FLAGS "-Wall -pedantic -Wextra -Werror")
+else()
+  set_target_properties(GreeterTests PROPERTIES CXX_STANDARD 17)
 endif()
 
 # ---- Add GreeterTests ----
 
-enable_testing()
-
-# Note: doctest and similar testing frameworks can automatically configure CMake tests For other
-# testing frameworks add the tests target instead: ADD_TEST(GreeterTests GreeterTests)
-
-include(${doctest_SOURCE_DIR}/scripts/cmake/doctest.cmake)
-doctest_discover_tests(GreeterTests)
+ENABLE_TESTING() 
+ADD_TEST(GreeterTests GreeterTests)
 
 # ---- code coverage ----
 
-if(ENABLE_TEST_COVERAGE)
-  target_compile_options(Greeter PUBLIC -O0 -g -fprofile-arcs -ftest-coverage)
-  target_link_options(Greeter PUBLIC -fprofile-arcs -ftest-coverage)
+if (${ENABLE_TEST_COVERAGE})
+  set_target_properties(GreeterTests PROPERTIES CXX_STANDARD 17 COMPILE_FLAGS "-O0 -g -fprofile-arcs -ftest-coverage --coverage")
+  target_link_options(GreeterTests PUBLIC "--coverage")
 endif()
