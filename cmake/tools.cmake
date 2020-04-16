@@ -1,74 +1,33 @@
-# this file contains a list of tools that can be activated and downloaded on-demand each tool is
-# enabled during configuration by passing an additional `-DUSE_<TOOL>=<VALUE>` argument to CMake
+# this file contains a list of tools that can be activated and downloaded on-demand
+# each tool is enabled during configuration by passing an additional `-DUSE_<TOOL>=<VALUE>` argument to CMake
 
-# only activate tools for top level project
-if(NOT PROJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
-  return()
-endif()
+# determine if a tool has already been enabled
+foreach(TOOL USE_SANITIZER;USE_CCACHE)
+  get_property(${TOOL}_ENABLED GLOBAL "" PROPERTY ${TOOL}_ENABLED SET)   
+endforeach()
 
-include(${CMAKE_CURRENT_LIST_DIR}/CPM.cmake)
+# enables sanitizers support using the the `USE_SANITIZER` flag
+# available values are: Address, Memory, MemoryWithOrigins, Undefined, Thread, Leak, 'Address;Undefined'
+if (USE_SANITIZER AND NOT USE_SANITIZER_ENABLED)
+  set_property(GLOBAL PROPERTY USE_SANITIZER_ENABLED true) 
 
-# enables sanitizers support using the the `USE_SANITIZER` flag available values are: Address,
-# Memory, MemoryWithOrigins, Undefined, Thread, Leak, 'Address;Undefined'
-if(USE_SANITIZER OR USE_STATIC_ANALYZER)
   CPMAddPackage(
     NAME StableCoder-cmake-scripts
     GITHUB_REPOSITORY StableCoder/cmake-scripts
-    GIT_TAG 3d2d5a9fb26f0ce24e3e4eaeeff686ec2ecfb3fb
+    GIT_TAG 3a469d8251660a97dbf9e0afff0a242965d40277
   )
-
-  if(USE_SANITIZER)
-    include(${StableCoder-cmake-scripts_SOURCE_DIR}/sanitizers.cmake)
-  endif()
-
-  if(USE_STATIC_ANALYZER)
-    if("clang-tidy" IN_LIST USE_STATIC_ANALYZER)
-      set(CLANG_TIDY
-          ON
-          CACHE INTERNAL ""
-      )
-    else()
-      set(CLANG_TIDY
-          OFF
-          CACHE INTERNAL ""
-      )
-    endif()
-    if("iwyu" IN_LIST USE_STATIC_ANALYZER)
-      set(IWYU
-          ON
-          CACHE INTERNAL ""
-      )
-    else()
-      set(IWYU
-          OFF
-          CACHE INTERNAL ""
-      )
-    endif()
-    if("cppcheck" IN_LIST USE_STATIC_ANALYZER)
-      set(CPPCHECK
-          ON
-          CACHE INTERNAL ""
-      )
-    else()
-      set(CPPCHECK
-          OFF
-          CACHE INTERNAL ""
-      )
-    endif()
-
-    include(${StableCoder-cmake-scripts_SOURCE_DIR}/tools.cmake)
-
-    clang_tidy(${CLANG_TIDY_ARGS})
-    include_what_you_use(${IWYU_ARGS})
-    cppcheck(${CPPCHECK_ARGS})
-  endif()
+  
+  include(${StableCoder-cmake-scripts_SOURCE_DIR}/sanitizers.cmake)
 endif()
 
-# enables CCACHE support through the USE_CCACHE flag possible values are: YES, NO or equivalent
-if(USE_CCACHE)
+# enables CCACHE support through the USE_CCACHE flag
+# possible values are: YES, NO or equivalent
+if (USE_CCACHE AND NOT USE_CCACHE_ENABLED)
+  set_property(GLOBAL PROPERTY USE_CCACHE_ENABLED true) 
+
   CPMAddPackage(
     NAME Ccache.cmake
     GITHUB_REPOSITORY TheLartians/Ccache.cmake
-    VERSION 1.2.1
+    VERSION 1.1
   )
 endif()
