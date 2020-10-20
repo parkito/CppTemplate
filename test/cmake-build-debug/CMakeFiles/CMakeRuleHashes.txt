@@ -1,0 +1,7 @@
+# Hashes of file build rules.
+df36038b668529e9f5da1a48156cd070 _deps/format.cmake-build/CMakeFiles/check-clang-format
+c5b16a0b5a89a161b131dcb40dc77a4f _deps/format.cmake-build/CMakeFiles/check-cmake-format
+df36038b668529e9f5da1a48156cd070 _deps/format.cmake-build/CMakeFiles/clang-format
+c5b16a0b5a89a161b131dcb40dc77a4f _deps/format.cmake-build/CMakeFiles/cmake-format
+df36038b668529e9f5da1a48156cd070 _deps/format.cmake-build/CMakeFiles/fix-clang-format
+c5b16a0b5a89a161b131dcb40dc77a4f _deps/format.cmake-build/CMakeFiles/fix-cmake-format

@@ -1,0 +1,14 @@
+# Target labels
+ cxxopts-populate
+# Source files and their labels
+/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-subbuild/CMakeFiles/cxxopts-populate
+/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-subbuild/CMakeFiles/cxxopts-populate.rule
+/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-subbuild/CMakeFiles/cxxopts-populate-complete.rule
+/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-subbuild/cxxopts-populate-prefix/src/cxxopts-populate-stamp/cxxopts-populate-install.rule
+/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-subbuild/cxxopts-populate-prefix/src/cxxopts-populate-stamp/cxxopts-populate-mkdir.rule
+/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-subbuild/cxxopts-populate-prefix/src/cxxopts-populate-stamp/cxxopts-populate-download.rule
+/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-subbuild/cxxopts-populate-prefix/src/cxxopts-populate-stamp/cxxopts-populate-update.rule
+/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-subbuild/cxxopts-populate-prefix/src/cxxopts-populate-stamp/cxxopts-populate-patch.rule
+/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-subbuild/cxxopts-populate-prefix/src/cxxopts-populate-stamp/cxxopts-populate-configure.rule
+/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-subbuild/cxxopts-populate-prefix/src/cxxopts-populate-stamp/cxxopts-populate-build.rule
+/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-subbuild/cxxopts-populate-prefix/src/cxxopts-populate-stamp/cxxopts-populate-test.rule

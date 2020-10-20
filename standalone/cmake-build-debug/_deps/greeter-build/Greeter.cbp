@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Greeter"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\cmake\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\cmake\;CMake Files\cmake-build-debug\_deps\;CMake Files\cmake-build-debug\_deps\packageproject.cmake-src\;CMake Files\cmake-build-debug\_deps\cxxopts-src\;CMake Files\cmake-build-debug\_deps\cxxopts-src\src\;CMake Files\cmake-build-debug\_deps\cxxopts-src\test\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Greeter">
+				<Option output="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/libGreeter.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/parkito/GitHub/learning/ModernCppStarter/include"/>
+					<Add directory="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/PackageProjectInclude"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/Makefile&quot;  VERBOSE=1 Greeter"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Greeter/fast">
+				<Option output="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/libGreeter.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/parkito/GitHub/learning/ModernCppStarter/include"/>
+					<Add directory="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/PackageProjectInclude"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/Makefile&quot;  VERBOSE=1 Greeter/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/greeter-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/parkito/GitHub/learning/ModernCppStarter/include/greeter/greeter.h">
+			<Option target="Greeter"/>
+		</Unit>
+		<Unit filename="/Users/parkito/GitHub/learning/ModernCppStarter/source/greeter.cpp">
+			<Option target="Greeter"/>
+		</Unit>
+		<Unit filename="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/../CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\"/>
+		</Unit>
+		<Unit filename="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/../cmake/CPM.cmake">
+			<Option virtualFolder="CMake Files\..\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/../cmake/tools.cmake">
+			<Option virtualFolder="CMake Files\..\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/cmake/CPM_0.27.2.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/packageproject.cmake-src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\packageproject.cmake-src\"/>
+		</Unit>
+		<Unit filename="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/packageproject.cmake-src/Config.cmake.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\packageproject.cmake-src\"/>
+		</Unit>
+		<Unit filename="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/packageproject.cmake-src/version.h.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\packageproject.cmake-src\"/>
+		</Unit>
+		<Unit filename="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\cxxopts-src\"/>
+		</Unit>
+		<Unit filename="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-src/cxxopts-config.cmake.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\cxxopts-src\"/>
+		</Unit>
+		<Unit filename="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-src/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\cxxopts-src\src\"/>
+		</Unit>
+		<Unit filename="/Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug/_deps/cxxopts-src/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cmake-build-debug\_deps\cxxopts-src\test\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,19 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/parkito/GitHub/learning/ModernCppStarter/test
+-- The CXX compiler identification is AppleClang 11.0.0.11000033
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++ - works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Downloading CPM.cmake to /Users/parkito/GitHub/learning/ModernCppStarter/test/cmake-build-debug/cmake/CPM_0.27.2.cmake
+-- CPM: adding package doctest@2.3.7 (2.3.7)
+-- CPM: adding package Greeter@ (/Users/parkito/GitHub/learning/ModernCppStarter/test/..)
+-- CPM: Greeter: adding package PackageProject.cmake@1.3 (v1.3)
+-- CPM: adding package Format.cmake@1.6 (v1.6)
+-- Found Python: /usr/local/Frameworks/Python.framework/Versions/3.7/bin/python3.7 (found version "3.7.2") found components: Interpreter 
+-- Format.cmake: clang-format and/or python not found, adding dummy targets
+-- Format.cmake: cmake-format and/or git not found, adding dummy targets
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/parkito/GitHub/learning/ModernCppStarter/test/cmake-build-debug

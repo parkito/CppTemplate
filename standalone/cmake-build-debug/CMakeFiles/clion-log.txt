@@ -1,0 +1,8 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/parkito/GitHub/learning/ModernCppStarter/standalone
+-- CPM: adding package cxxopts@2.2.0 (v2.2.0)
+-- cxxopts version 2.2.0
+-- CPM: adding package Greeter@ (/Users/parkito/GitHub/learning/ModernCppStarter/standalone/..)
+-- CPM: Greeter: adding package PackageProject.cmake@1.3 (v1.3)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/parkito/GitHub/learning/ModernCppStarter/standalone/cmake-build-debug
