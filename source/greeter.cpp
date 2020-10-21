@@ -1,8 +1,10 @@
 #include <greeter/greeter.h>
 
+#include <utility>
+
 using namespace greeter;
 
-Greeter::Greeter(std::string _name) : name(_name) {}
+Greeter::Greeter(std::string _name) : name(std::move(_name)) {}
 
 std::string Greeter::greet(LanguageCode lang) const {
   switch (lang) {

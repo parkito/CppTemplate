@@ -3,7 +3,6 @@
 
 #include <cxxopts.hpp>
 #include <iostream>
-#include <string>
 #include <unordered_map>
 
 const std::unordered_map<std::string, greeter::LanguageCode> languages{
