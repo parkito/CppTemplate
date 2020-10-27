@@ -1,4 +1,4 @@
-# Install script for directory: /Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/_deps/packageproject.cmake-src
+# Install script for directory: /Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/_deps/packageproject.cmake-src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

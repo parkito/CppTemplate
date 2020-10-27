@@ -6,5 +6,5 @@ CXX_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sd
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/parkito/GitHub/learning/ModernCppStarter/include -I/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/PackageProjectInclude 
+CXX_INCLUDES = -I/Users/parkito/GitHub/learning/cppTemplate/include -I/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/PackageProjectInclude 
 

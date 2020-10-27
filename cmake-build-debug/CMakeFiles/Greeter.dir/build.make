@@ -63,10 +63,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/parkito/GitHub/learning/ModernCppStarter
+CMAKE_SOURCE_DIR = /Users/parkito/GitHub/learning/cppTemplate
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Greeter.dir/depend.make
@@ -79,16 +79,16 @@ include CMakeFiles/Greeter.dir/flags.make
 
 CMakeFiles/Greeter.dir/source/greeter.cpp.o: CMakeFiles/Greeter.dir/flags.make
 CMakeFiles/Greeter.dir/source/greeter.cpp.o: ../source/greeter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Greeter.dir/source/greeter.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Greeter.dir/source/greeter.cpp.o -c /Users/parkito/GitHub/learning/ModernCppStarter/source/greeter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Greeter.dir/source/greeter.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Greeter.dir/source/greeter.cpp.o -c /Users/parkito/GitHub/learning/cppTemplate/source/greeter.cpp
 
 CMakeFiles/Greeter.dir/source/greeter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Greeter.dir/source/greeter.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/parkito/GitHub/learning/ModernCppStarter/source/greeter.cpp > CMakeFiles/Greeter.dir/source/greeter.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/parkito/GitHub/learning/cppTemplate/source/greeter.cpp > CMakeFiles/Greeter.dir/source/greeter.cpp.i
 
 CMakeFiles/Greeter.dir/source/greeter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Greeter.dir/source/greeter.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/parkito/GitHub/learning/ModernCppStarter/source/greeter.cpp -o CMakeFiles/Greeter.dir/source/greeter.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/parkito/GitHub/learning/cppTemplate/source/greeter.cpp -o CMakeFiles/Greeter.dir/source/greeter.cpp.s
 
 # Object files for target Greeter
 Greeter_OBJECTS = \
@@ -100,7 +100,7 @@ Greeter_EXTERNAL_OBJECTS =
 libGreeter.a: CMakeFiles/Greeter.dir/source/greeter.cpp.o
 libGreeter.a: CMakeFiles/Greeter.dir/build.make
 libGreeter.a: CMakeFiles/Greeter.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libGreeter.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libGreeter.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/Greeter.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Greeter.dir/link.txt --verbose=$(VERBOSE)
 
@@ -114,6 +114,6 @@ CMakeFiles/Greeter.dir/clean:
 .PHONY : CMakeFiles/Greeter.dir/clean
 
 CMakeFiles/Greeter.dir/depend:
-	cd /Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/parkito/GitHub/learning/ModernCppStarter /Users/parkito/GitHub/learning/ModernCppStarter /Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug /Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug /Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/CMakeFiles/Greeter.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/parkito/GitHub/learning/cppTemplate /Users/parkito/GitHub/learning/cppTemplate /Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug /Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug /Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/CMakeFiles/Greeter.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Greeter.dir/depend
 

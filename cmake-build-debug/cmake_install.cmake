@@ -1,4 +1,4 @@
-# Install script for directory: /Users/parkito/GitHub/learning/ModernCppStarter
+# Install script for directory: /Users/parkito/GitHub/learning/cppTemplate
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,15 +34,15 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/_deps/packageproject.cmake-build/cmake_install.cmake")
+  include("/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/_deps/packageproject.cmake-build/cmake_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/Greeter-1.0" TYPE DIRECTORY FILES "/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/PackageProjectInclude/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/Greeter-1.0" TYPE DIRECTORY FILES "/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/PackageProjectInclude/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xDevelopmentx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/Greeter-1.0" TYPE STATIC_LIBRARY FILES "/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/libGreeter.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/Greeter-1.0" TYPE STATIC_LIBRARY FILES "/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/libGreeter.a")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/Greeter-1.0/libGreeter.a" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/Greeter-1.0/libGreeter.a")
     execute_process(COMMAND "/Library/Developer/CommandLineTools/usr/bin/ranlib" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/Greeter-1.0/libGreeter.a")
@@ -53,7 +53,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/Greeter-1.0/GreeterTargets.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/Greeter-1.0/GreeterTargets.cmake"
-         "/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/CMakeFiles/Export/lib/cmake/Greeter-1.0/GreeterTargets.cmake")
+         "/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/CMakeFiles/Export/lib/cmake/Greeter-1.0/GreeterTargets.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/Greeter-1.0/GreeterTargets-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -62,21 +62,21 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/Greeter-1.0" TYPE FILE FILES "/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/CMakeFiles/Export/lib/cmake/Greeter-1.0/GreeterTargets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/Greeter-1.0" TYPE FILE FILES "/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/CMakeFiles/Export/lib/cmake/Greeter-1.0/GreeterTargets.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/Greeter-1.0" TYPE FILE FILES "/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/CMakeFiles/Export/lib/cmake/Greeter-1.0/GreeterTargets-debug.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/Greeter-1.0" TYPE FILE FILES "/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/CMakeFiles/Export/lib/cmake/Greeter-1.0/GreeterTargets-debug.cmake")
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/Greeter-1.0" TYPE FILE FILES
-    "/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/GreeterConfigVersion.cmake"
-    "/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/GreeterConfig.cmake"
+    "/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/GreeterConfigVersion.cmake"
+    "/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/GreeterConfig.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/Greeter-1.0" TYPE DIRECTORY FILES "/Users/parkito/GitHub/learning/ModernCppStarter/include/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/Greeter-1.0" TYPE DIRECTORY FILES "/Users/parkito/GitHub/learning/cppTemplate/include/")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -87,5 +87,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

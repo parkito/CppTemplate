@@ -3,21 +3,21 @@
 cmake_policy(SET CMP0009 NEW)
 
 # headers at CMakeLists.txt:37 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/parkito/GitHub/learning/ModernCppStarter/include/*.h")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/parkito/GitHub/learning/cppTemplate/include/*.h")
 set(OLD_GLOB
-  "/Users/parkito/GitHub/learning/ModernCppStarter/include/greeter/greeter.h"
+  "/Users/parkito/GitHub/learning/cppTemplate/include/greeter/greeter.h"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/CMakeFiles/cmake.verify_globs")
 endif()
 
 # sources at CMakeLists.txt:38 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/parkito/GitHub/learning/ModernCppStarter/source/*.cpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/Users/parkito/GitHub/learning/cppTemplate/source/*.cpp")
 set(OLD_GLOB
-  "/Users/parkito/GitHub/learning/ModernCppStarter/source/greeter.cpp"
+  "/Users/parkito/GitHub/learning/cppTemplate/source/greeter.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/CMakeFiles/cmake.verify_globs")
 endif()

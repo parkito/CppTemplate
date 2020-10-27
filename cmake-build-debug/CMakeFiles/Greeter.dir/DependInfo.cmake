@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/parkito/GitHub/learning/ModernCppStarter/source/greeter.cpp" "/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/CMakeFiles/Greeter.dir/source/greeter.cpp.o"
+  "/Users/parkito/GitHub/learning/cppTemplate/source/greeter.cpp" "/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/CMakeFiles/Greeter.dir/source/greeter.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

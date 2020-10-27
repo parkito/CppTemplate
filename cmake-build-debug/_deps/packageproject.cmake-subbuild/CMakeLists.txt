@@ -12,8 +12,8 @@ project(packageproject.cmake-populate NONE)
 include(ExternalProject)
 ExternalProject_Add(packageproject.cmake-populate
                      "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/TheLartians/PackageProject.cmake.git" "GIT_TAG" "v1.3"
-                    SOURCE_DIR          "/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/_deps/packageproject.cmake-src"
-                    BINARY_DIR          "/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/_deps/packageproject.cmake-build"
+                    SOURCE_DIR          "/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/_deps/packageproject.cmake-src"
+                    BINARY_DIR          "/Users/parkito/GitHub/learning/cppTemplate/cmake-build-debug/_deps/packageproject.cmake-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

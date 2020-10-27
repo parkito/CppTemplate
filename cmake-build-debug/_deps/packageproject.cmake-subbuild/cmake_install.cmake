@@ -1,4 +1,4 @@
-# Install script for directory: /Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/_deps/packageproject.cmake-subbuild
+# Install script for directory: /Users/parkito/GitHub/learning/CppTemplate/cmake-build-debug/_deps/packageproject.cmake-subbuild
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/parkito/GitHub/learning/ModernCppStarter/cmake-build-debug/_deps/packageproject.cmake-subbuild/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/parkito/GitHub/learning/CppTemplate/cmake-build-debug/_deps/packageproject.cmake-subbuild/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
