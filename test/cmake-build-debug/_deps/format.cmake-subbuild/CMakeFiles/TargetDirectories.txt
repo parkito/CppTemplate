@@ -1,3 +1,0 @@
-/Users/parkito/GitHub/learning/ModernCppStarter/test/cmake-build-debug/_deps/format.cmake-subbuild/CMakeFiles/rebuild_cache.dir
-/Users/parkito/GitHub/learning/ModernCppStarter/test/cmake-build-debug/_deps/format.cmake-subbuild/CMakeFiles/edit_cache.dir
-/Users/parkito/GitHub/learning/ModernCppStarter/test/cmake-build-debug/_deps/format.cmake-subbuild/CMakeFiles/format.cmake-populate.dir

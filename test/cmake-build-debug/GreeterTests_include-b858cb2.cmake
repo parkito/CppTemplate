@@ -1,5 +1,0 @@
-if(EXISTS "/Users/parkito/GitHub/learning/ModernCppStarter/test/cmake-build-debug/GreeterTests_tests-b858cb2.cmake")
-  include("/Users/parkito/GitHub/learning/ModernCppStarter/test/cmake-build-debug/GreeterTests_tests-b858cb2.cmake")
-else()
-  add_test(GreeterTests_NOT_BUILT-b858cb2 GreeterTests_NOT_BUILT-b858cb2)
-endif()
